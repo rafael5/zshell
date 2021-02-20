@@ -15,13 +15,11 @@ https://stackoverflow.com/questions/34340578/installing-c-libraries-on-os-x/3434
 
 
 # brew install GNU C++  CMAKE and compiler/linker packager
-'''
-brew install
-    gcc         <== GCC 10.x
-    g++         <== GCC 10.x
-    cmake       <== v 3.19.5
-    pkg-config  <== package compiler/linker settings
-'''
+/ brew install
+/     gcc         <== GCC 10.x
+/    g++         <== GCC 10.x
+/    cmake       <== v 3.19.5
+/    pkg-config  <== package compiler/linker settings
 
 
 # set path loading order (precedence) in  /etc/paths
