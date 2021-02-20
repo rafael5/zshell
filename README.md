@@ -1,1 +1,1 @@
-# zshell
+# zshell - unix config folder
