@@ -1,0 +1,192 @@
+# #!/usr/bin/env bash  <- 'proper' notation
+# #!/bin/bash  <- macos 2007 default
+
+# profile -  executed once when login - for all apps - both terminal and nonterminal
+# bashrc -   runs only when starting a shell
+
+# Quotes: to be safe, just stick with single quotes when using echo
+# Single quote: echo 'literals only' vs double quote echo "literals + variables"
+
+# start latest brew-installed bash
+# bash
+
+
+
+# ----------------------------------------------------------------------------------
+# GNU UTILS
+# ----------------------------------------------------------------------------------
+# Using GNU command line tools in macOS instead of FreeBSD tools
+# https://ryanparman.com/posts/2019/using-gnu-command-line-tools-in-macos-instead-of-freebsd-tools/
+# brew install coreutils ed findutils gawk gnu-sed gnu-tar grep make
+
+# Get list of gnubin directories
+export GNUBINS="$(find /usr/local/opt -type d -follow -name gnubin -print)";
+
+for bindir in ${GNUBINS[@]}; do
+  export PATH=$bindir:$PATH;
+done;
+
+
+
+# make GNU commands available
+#export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+#export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
+
+# ls: using GNU utils
+alias ls='ls --color -h --group-directories-first'
+alias l='ls -FG'                 # short
+alias l.='ls -FG -d .*'          # hidden only
+alias la='ls -a -FG'             # all short
+alias ll='ls -al -FG'            # all long
+alias cl='clear; ls -FG'
+alias cl.='clear; ls -FG -d .*'
+alias cla='clear; ls -a -FG'
+alias cll='clear; ls -al -FG'
+
+# directories
+alias c='clear;pwd'
+alias home='echo "changing path to home directory"; cd ~ ; pwd'
+
+alias ..='cd ..;clear;pwd;ls -FG'
+alias ...='cd ..;cd ..;clear;pwd;ls -FG'
+alias ....='cd ..;cd ..;cd ..;clear;pwd;ls -FG'
+
+
+# files
+alias files-inDir='ls -l | wc -l '
+alias files-cmd='echo "c home local  l  l.  la  ll  ..  ... filesInDir " '
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------------------------
+# FUNS STUFF ON COMMAND LINE
+#-------------------------------------------------------------------------------------
+# http://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/
+# http://lifehacker.com/302197/useful-command-line-tricks-for-mac-users
+# http://lifehacker.com/399468/top-10-command-line-tools
+# http://lifehacker.com/eight-terminal-utilities-every-os-x-command-line-user-s-1593793109
+# http://www.maketecheasier.com/10-funny-and-useless-linux-command/
+# http://unix.stackexchange.com/questions/48059/how-to-clean-up-unnecessary-files
+
+
+
+# ----------------------------------------------------------------------------------
+# PATHS
+#-------------------------------------------------------------------------------------
+# Ensure user-installed binaries are declared (take precedence) before system or dev paths  
+# /usr/bin:/bin:/sbin:/usr/sbin
+# PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
+# export PATH="/Users/rafael:$PATH"                        # RMR personal bash scripts
+# export PATH="/usr/local/sbin:$PATH"                      # brew-installed apps
+# export PATH="/usr/local/var:$PATH"		             # source-installed apps (src)
+# export PATH="/usr/local/bin:$PATH"		             # binary-installed apps (dmg; Node)
+
+# https://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-variable/
+
+# DEV ENVIRONMENT PATHS
+# export PATH="/usr/local/bin/npm:$PATH"                        # node
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`              # JAVA
+# export GOPATH=$HOME/go                                        # GO
+# export PATH=$PATH:$GOPATH/bin                                 # GO
+# export PATH="/Users/rafael/mongodb-enterprise-4.4/bin:$PATH"  # Mongodb
+# export PATH="/usr/local/mysql/bin:$PATH"                      # mysql installer
+# export PATH="$HOME/anaconda3/bin:$PATH"                       # anaconda
+# export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
+
+
+# ----------------------------------------------------------------------------------
+# APPLE SPECIFIC
+# ----------------------------------------------------------------------------------
+#QUIT App
+# place 'quit' shell command in  /Volume/SSD/rafael/quit
+# place symlink for 'quit' in  /usr/local/bin
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "$HOME/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+#show path in finder window (YES,NO)
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES 
+
+#text to speech (any text)
+# say "new bash terminal"
+
+#show hiden files in finder (TRUE,FALSE)
+#defaults write com.apple.finder AppleShowAllFiles TRUE 
+
+# APPLE: SPEED ENHANCEMENTS 
+# http://www.chriswrites.com/2012/01/17-ways-to-speed-up-mac-os-x-lion/
+# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+
+# Disable the switching Spaces animation
+#defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES && killall Dock
+
+# Disable menu bar transparency
+#defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Expand save panel by default
+#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+#defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+#defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+
+
+
+
+
+
+
+
+#= DATA SCIENCE AT COMMAND LINE =========================== 
+# http://datascienceatthecommandline.com/
+# export COMMANDLINE_SCIENCE='/Volumes/SSD/rafael/git/data-science-at-the-command-line/tools'
+# export PATH="/Volumes/SSD/rafael/git/data-science-at-the-command-line/tools:$PATH"
+
+
+#JQ - lightweight command line JSON processor
+#http://stedolan.github.io/jq/
+
+#bashplotlib
+#https://github.com/glamp/bashplotlib
+
+#eplot -  "easy gnuplot" wrapper - pipes data through gnuplot
+#http://liris.cnrs.fr/christian.wolf/software/eplot/index.html
+
+#gnuplot
+#http://www.gnuplot.info/
+
+#prettytable
+#http://code.google.com/p/prettytable/
+
+#tablulate
+#https://pypi.python.org/pypi/tabulate
+
+#csvkit
+#https://csvkit.readthedocs.org/en/0.9.0/tutorial/1_getting_started.html
+
+#pandas
+#http://pandas.pydata.org/pandas-docs/stable/index.html
+
+#datasciencetoolkit
+#http://www.datasciencetoolkit.org/developerdocs
+
+#command line data wrangling
+#https://github.com/rgrp/command-line-data-wrangling

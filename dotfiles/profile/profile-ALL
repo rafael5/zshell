@@ -1,0 +1,519 @@
+# profile -  executed once when login - for all apps - both terminal and nonterminal
+# bashrc -   runs only when starting a shell
+
+# Quotes: to be safe, just stick with single quotes when using echo
+# Single quote: echo 'literals only' vs double quote echo "literals + variables"
+
+#fun stuff on command line
+# http://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/
+# http://lifehacker.com/302197/useful-command-line-tricks-for-mac-users
+# http://lifehacker.com/399468/top-10-command-line-tools
+# http://lifehacker.com/eight-terminal-utilities-every-os-x-command-line-user-s-1593793109
+# http://www.maketecheasier.com/10-funny-and-useless-linux-command/
+# http://unix.stackexchange.com/questions/48059/how-to-clean-up-unnecessary-files
+
+
+# man | whatis  'commandName'
+# 'command' --help
+# history|awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -r
+
+
+clear
+
+echo '                             _________                           '
+echo '                                 |                               '
+echo '        \________________________|________________________/      '
+echo '                                (.)                              '
+echo '                                 "                               '
+echo '---------------------------------------------------------------------'
+
+
+echo 'SYS:  paths ftp ssh brew filesys utils functs fish calc/bc'
+echo 'MAINT all: periodic permisssions apps status;  ncdu; mas'
+echo 'NET   ports ipinfo'
+echo 'DEV   node-info | r-info | anaconda | brew | services list/start/stop'
+echo 'FUN   sl cowsay fortune rev cmatrix toilet espeak  '
+echo '---------------------------------------------------------------------'
+
+fortune
+# fortune | say
+
+
+
+# Aliases - APPLICATIONS
+#-------------------------------------------------------------------------------------
+alias calc='open -a /Applications/Numi.app/Contents/MacOS/Numi'
+alias gp='git pull;cd ..'
+
+
+# Aliases - SYSTEM
+#-------------------------------------------------------------------------------------
+# aliases beware!  the order of them is critical, since aliases build on aliases.
+alias sys-info='paths-info; ports-info; brew-info; filesys-info; functs-info'
+alias ipinfo='echo "curl ipinfo.io/ipaddress";open http://ipinfo.io/;open http://www.speedtest.net'
+
+alias maint-periodic='sudo periodic daily weekly monthly; echo "periodic maintenance done"; open  http://ss64.com/osx/'
+alias maint-status='echo "periodic maintenance  last run:";  ls -al /var/log/*.out'
+alias maint-permissions='sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume / '
+alias maint-apps='open /Applications/OnyX.app/; open /Applications/CleanMyMac.app/'
+alias maint-all='maint-status; maint-periodic; maint-permissions; echo "post-clean status"; maint-status'
+
+alias m='clear; sh ~/m.sh'
+
+
+
+# Aliases - FILESYSTEM
+#-------------------------------------------------------------------------------------
+alias c='clear;pwd'
+
+alias home='echo "changing path to home directory"; cd ~ ; pwd'
+alias local='echo "changing path to /usr/local"; cd /usr/local; pwd'
+
+alias fileNum='ls -l | wc -l '
+
+alias lsf='ls -F' 				# Full (/=directory; @=symlink; *=executable)
+
+alias cls='clear;ls'
+alias la='pwd;ls -a'		
+alias ll='pwd;ls -l'		
+alias lla='pwd;ls -al'		
+alias l.='ls -l -d .*'		# show hidden files
+
+alias ..='cd ..;clear;pwd;ls'
+alias ...='cd ..;cd ..;clear;pwd;ls'
+alias ....='cd ..;cd ..;cd ..;clear;pwd;ls'
+
+alias filesys-info='echo "c home local ls la ll lla l. .. ...  filesInDir"'
+
+
+# SAFETY
+#-------------------------------------------------------------------------------------
+# do not delete / or prompt if deleting more than 3 files at a time #
+alias rm='rm -i'
+alias mv='mv -i'              #confirmation
+alias cp='cp -i'
+alias ln='ln -i'
+alias chown='chown --preserve-root'     #parenting changing perms on / #
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+
+# UTILITIES
+#-------------------------------------------------------------------------------------
+alias df='df -h'                                  #display free space
+alias top='top -o cpu'                            #order by cpu
+alias path='echo -e ${PATH//:/\\n}'
+alias wget='wget -c'                              #resume wget by default
+alias nowdate='date +"%d-%m-%Y"'
+
+alias grep='grep --color=auto'                    #colorize grep command
+alias nocomment='grep -Ev '\''^(#|$)'\'''         #show text file without comment(#) lines
+alias diff='colordiff'                            #compare files line by line using color
+
+alias cpuinfo='lscpu'                                   #cpu info
+alias meminfo='free -m -l -t'                           #pass options to free
+alias psmem='ps auxf | sort -nr -k 4'                   #top process eating memory
+alias pscpu='ps auxf | sort -nr -k 3'                   #top process eating cpu
+
+alias DS_StoreRemoveRecursive='sudo find . -name \.DS_Store -exec rm -v {} \;'
+
+alias countchars='wc -c'            #count chars in file
+alias countwords='wc -w'            #count words in file
+alias countlines='wc -l'            #count lines in file
+
+alias utils-info=' echo "count-chars-words-lines df top path wget nowdate grep nocomment diff cpuinfo meminfo psmem pscpu DS_StoreRemove"'
+
+
+
+
+
+
+
+
+
+
+#============================ SYSTEM ==================================================
+# ARCHITECTURE FLAGS
+# export ARCHFLAGS="-arch x86_64"                	#compile everything as 64bit
+# export CFLAGS="-O -m64 -mmacosx-version-min=10.8"	#virtuoso compiler flags
+
+
+# PATHS 
+#-------------------------------------------------------------------------------------
+# Ensure user-installed binaries take precedence over system paths  :/usr/bin:/bin:/sbin:/usr/sbin
+#PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
+export PATH="/usr/local/bin:$PATH"			    # binary-installed apps (dmg; Node)	
+export PATH="/usr/local/sbin:$PATH"			    # brew-installed apps
+export PATH="/usr/local/var:$PATH"			    # source-installed apps (src)
+export PATH="/Users/rafael:$PATH"           # RMR personal bash scripts
+alias paths-info='echo "/usr/local/bin (binaries)  sbin(brewed) var(source) mysql(data) bin/npm(node)"'
+
+export PATH="/Users/rafael/flutter/bin:$PATH"  #flutter
+
+
+
+
+
+# PORTS
+#-------------------------------------------------------------------------------------
+alias ports='lsof -i -P -n | sort'
+alias portsTCP='lsof -i | grep LISTEN | grep "TCP \*:" | sort'
+alias portsOPEN='lsof -i | grep ESTABLISHED | sort'
+alias portsLISTEN='lsof -i -P | grep -i "listen" | sort'
+alias ports-info='echo "ports   portsTCP   portsOPEN   portsLISTEN"'
+
+
+
+
+# PYTHON  (Anaconda)
+#-------------------------------------------------------------------------------------
+#Anaconda - Python3.7.3 + Scikit + Tensorflow + Juypiter
+alias anaconda='open ~/anaconda3/Anaconda-Navigator.app'
+export PATH="$HOME/anaconda3/bin:$PATH"
+
+# Anaconda update
+alias conda-all='conda update --all;conda clean --all'
+
+# JupyterLab
+# https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906
+# conda install -c conda-forge jupyterlab
+alias nb='jupyter lab'
+
+
+# Conda install
+# tensorflow
+# plotly
+
+
+
+
+# NODE 
+#-------------------------------------------------------------------------------------
+# DO NOT INSTALL VIA BREW; Brew messes with NPM package management !!!
+# To fix messed up installation:  https://gist.github.com/DanHerbert/9520689
+
+# Install from https://nodejs.org/en/
+# Node.js was installed at:    /usr/local/bin/node
+# npm was installed at:       /usr/local/bin/npm
+# Make sure that /usr/local/bin is in your $PATH.
+
+# NPM install path problems because two node binaries are on the system
+# https://github.com/npm/npm/issues/14372
+# https://stackoverflow.com/questions/14803978/npm-global-path-prefix
+#   npm config set scripts-prepend-node-path true
+#   npm config get prefix
+
+export PATH="/usr/local/bin/npm:$PATH"
+alias node-dir='cd /Users/rafael/node/npm_modules-link@;ll;echo "changing to node module directory"'
+alias node-info='echo "node-dir" '
+
+
+# Node:  React Native
+# https://facebook.github.io/react-native/docs/getting-started.html#content
+
+# /usr/local/bin/gulp -> /usr/local/lib/node_modules/gulp/bin/gulp.js
+
+
+
+
+
+
+# BREW
+#-------------------------------------------------------------------------------------
+alias brew-all='clear;echo brew_updating...;brew update; echo brew_upgrade...;brew upgrade;clear;echo brew_cleanup...; brew cleanup -s --force; clear;clear;echo brew_doctor...;brew doctor; echo brew_list...;brew list'
+alias brew-reset='cd /usr/local; git fetch origin; git reset --hard origin/master'
+alias brew-info='echo "brew  -all reset --help"'
+
+# HOMEBREW SERVICES
+# https://github.com/Homebrew/homebrew-services
+# https://robots.thoughtbot.com/starting-and-stopping-background-services-with-homebrew
+# brew services run|start|stop|restart |list | cleanup --all
+
+# problem with brew install of openssl:  https://github.com/Homebrew/homebrew-php/issues/1212
+# brew install openssl && brew link openssl --force
+
+# General
+# gcc wget git exiftool  fortune lynx
+
+# Markdown
+# pandoc multimarkdown doxygen 
+
+
+
+
+# GO
+#-------------------------------------------------------------------------------------
+# http://www.golangbootcamp.com/book/get_setup
+# http://www.golangbootcamp.com/book/_single-page
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+
+
+
+
+# FUNCTIONS
+#-------------------------------------------------------------------------------------
+# http://murphymac.com/tree-command-for-mac/
+function tree {
+find ${1:-.} -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+}
+
+# Expand compressed files
+# http://www.ibm.com/developerworks/aix/library/au-spunixpower.html
+ex () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1        ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1       ;;
+      *.rar)       rar x $1     ;;
+      *.gz)        gunzip $1     ;;
+      *.tar)       tar xf $1        ;;
+      *.tbz2)      tar xjf $1      ;;
+      *.tgz)       tar xzf $1       ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1    ;;
+      *)           echo "'$1' cannot be extracted via extract()" ;;
+
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# make terminal prompt red 
+PS1="\e[0;31m[\W]\$ \e[m"
+
+
+# Quit applicationName
+function quit {
+osascript <<EOF
+  tell application "$*" to quit
+EOF
+}
+
+
+alias functs-info='echo "fortune  quit [appname]  tree [dir]  ex(pand)[compressed file]  "'
+
+
+
+
+# VIRTUALBOX
+#-------------------------------------------------------------------------------------
+# bug starting Virtualbox without first starting the vbox kernel
+# http://superuser.com/questions/733367/virtualbox-odd-behaviour-after-updating-the-host-to-os-x-mavericks
+# http://nakkaya.com/2012/08/30/create-manage-virtualBox-vms-from-the-command-line/
+
+alias vboxman='VBoxManage'
+
+alias vbox-start='sudo /Library/Application\ Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh restart'
+alias vbox-state=' VBoxManage list vms -l | grep -e ^Name: -e ^State | sed s/\ \ //g | cut -d: -f2- '
+alias vbox-list='vboxman list vms; echo "RUNNING VMs:";  vboxman list runningvms ' 
+
+
+
+
+
+
+# Useful commands
+#-------------------------------------------------------------------------------------# http://ss64.com/osx/
+# http://www.infoworld.com/d/applications/top-20-os-x-command-line-secrets-power-users-202466?page=0,3
+# http://www.howtogeek.com/forum/topic/mac-terminalcmd-commands
+#
+# locate        find file
+# lsof -i ls    open file: reveal open TCP and UDP ports and apps using them
+# open          launch apps or directory/path
+# opendiff      compare and merge files and directories
+# pgrep pkill   find or signal a program or process by name
+# qlmanage -p   quick look / preview of file
+# shutdown       restart mac
+# systemsetup   system configs/preferences
+# textutil -info MyWordFile display file info
+# textutil -convert html MyWorldFile -output /tmp/webfile.html    convert file to html
+# top
+# uptme   time since last reboot
+
+
+
+
+
+
+
+
+
+
+#============================ APPLE SPECIFIC ==================================================
+
+#QUIT App
+# place 'quit' shell command in  /Volume/SSD/rafael/quit
+# place symlink for 'quit' in  /usr/local/bin
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "$HOME/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+#show path in finder window (YES,NO)
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES 
+
+#text to speech (any text)
+# say "new bash terminal"
+
+#show hiden files in finder (TRUE,FALSE)
+#defaults write com.apple.finder AppleShowAllFiles TRUE 
+
+# APPLE: SPEED ENHANCEMENTS 
+# http://www.chriswrites.com/2012/01/17-ways-to-speed-up-mac-os-x-lion/
+# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+
+# Disable the switching Spaces animation
+#defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES && killall Dock
+
+# Disable menu bar transparency
+#defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Expand save panel by default
+#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+#defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+#defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+
+
+
+
+
+
+
+
+
+
+#= DATA SCIENCE AT COMMAND LINE =========================== 
+# http://datascienceatthecommandline.com/
+# export COMMANDLINE_SCIENCE='/Volumes/SSD/rafael/git/data-science-at-the-command-line/tools'
+# export PATH="/Volumes/SSD/rafael/git/data-science-at-the-command-line/tools:$PATH"
+
+
+#JQ - lightweight command line JSON processor
+#http://stedolan.github.io/jq/
+
+#bashplotlib
+#https://github.com/glamp/bashplotlib
+
+#eplot -  "easy gnuplot" wrapper - pipes data through gnuplot
+#http://liris.cnrs.fr/christian.wolf/software/eplot/index.html
+
+#gnuplot
+#http://www.gnuplot.info/
+
+#prettytable
+#http://code.google.com/p/prettytable/
+
+#tablulate
+#https://pypi.python.org/pypi/tabulate
+
+#csvkit
+#https://csvkit.readthedocs.org/en/0.9.0/tutorial/1_getting_started.html
+
+#pandas
+#http://pandas.pydata.org/pandas-docs/stable/index.html
+
+#datasciencetoolkit
+#http://www.datasciencetoolkit.org/developerdocs
+
+#command line data wrangling
+#https://github.com/rgrp/command-line-data-wrangling
+
+
+
+
+
+
+
+
+
+#=============  VA DATA PROJECTS - RETIRED 2018 ====
+
+
+# VICS - Veteran Integrated Care Services
+#-------------------------------------------------------------------------------------
+alias vics='clear; sh ~/vics.sh'
+
+# Server Status
+alias vics-reload='cd ~/vagrant/VICSServer/setup; vagrant reload'
+alias vics-halt='cd ~/vagrant/VICSServer/setup; vagrant halt'
+alias vics-status='cd ~/vagrant/VICSServer/setup; vagrant status'
+
+# Server Access:  IP 10.2.2.222
+# web ssh: Install on guest VM: sudo apt-get install shellinabox ==> Requires port 4200 to be opened
+alias vics-webssh='echo "VICSServer ssh user/pass: vdp/vdp"; open https://10.2.2.222:4200/'
+alias vics-ssh='echo "VICSServer ssh user/pass: vdp/vdp"; vagrant ssh'
+# or:  ssh vdp@10.2.2.222'
+
+# Web Clients
+alias vics-model='open http://10.2.2.222:9000/schema'
+alias vics-query='open http://10.2.2.222:9000/query'
+alias vics-router='open http://10.2.2.222:9012'
+
+# CPRS Client (wine)
+#user/pass:  fakedoc1 / 1doc!@#$ -> fakedoc1#
+alias cprs-client='cd ~/.wine/drive_c/Program\ Files/CPRS_1_0_31_116; wine CPRSChart.exe'
+
+
+
+
+# nodeVISTA
+#-------------------------------------------------------------------------------------
+# NOTE:  the paths to vagrant, git, and wine depend on invidual preferences. 
+
+alias nv='clear; sh ~/nv.sh'
+
+# Server Status
+alias nv-reload='cd ~/vagrant/nodeVISTA/setup; vagrant reload; nv-status'
+alias nv-halt='cd ~/vagrant/nodeVISTA/setup; vagrant halt; nv-status'
+alias nv-status='cd ~/vagrant/nodeVISTA/setup; nv; vagrant status'
+
+# Server Access
+# Direct terminal:
+alias nv-ssh='echo "nodeVISTA ssh user/pass: vdp/vdp"; ssh vdp@10.2.2.100'
+# Web terminal: Requires installation in guest VM:  sudo apt-get install shellinabox
+alias nv-ssh-web='echo "nodeVISTA ssh user/pass: vdp/vdp"; open https://10.2.2.100:4200/'
+# NodeVISTA Manager 
+alias nv-manager='open http://10.2.2.100:9020/#rpcCounts'
+
+# VISTA Data Model
+# VDM Browser (old name: Fileman Schema Browser)
+alias vdm-browser='open http://10.2.2.100:9000/schema'
+# VDM Query (old name: FMQL Query)
+alias vdm-query='open http://10.2.2.100:9000/query'
+
+
+# CPRS Client
+# Win Emulation: Install Wine
+# https://www.davidbaumgold.com/tutorials/wine-mac/
+alias cprs-client='cd ~/.wine/drive_c/Program\ Files/CPRS; wine CPRSChart.exe'
+# Win VM: Install Win10 in Virtualbox from ISO and label "Win10-CPRS"
+# https://www.microsoft.com/en-us/software-download/windows10ISO
+alias cprs-vm='VBoxManage startvm "Win10-CPRS"'
+# For both Windows methods, follow CPRS installation instructions
+# http://vistadataproject.info/demo/#cprs--rpc-server-installation
+
+alias win10-vm='VBoxManage startvm "Win10"'
+
+
+# Cliical Services
+alias nv-cs-demo=' echo "Starting MVDM Clinical Services demo"; br; cd ~/git/rafael5/vdp/nodeVISTAClients/console; node console.js '
+alias nv-cs-status='cd ~/git/rafael5/vdp/nodeVISTAClients/console; curl http://10.2.2.100:9030'
+# echo "    <==    If the response is no authentication token, the service is working correctly and ON; 
+# If there is no respoinse, or failure to connect, the clinical service is OFF."
+
+
