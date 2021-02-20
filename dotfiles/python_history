@@ -1,0 +1,102 @@
+help()
+modules
+help
+help()
+?
+modules
+import wikipedia
+print wikipedia.summary("Wikipedia")
+wikipedia.search("Barack")
+ny = wikipedia.page("New York")
+ny.title
+ny.url
+ny = wikipedia.page("New York")
+c
+clear
+ny
+print ny
+ny = wikipedia.page("New York")
+exit
+exit(O
+exit()
+exit
+exit()
+import pymongo
+from pymongo import MongoClient
+client= MongoClient('localhost',27017)
+db=client['test]]
+db=client['test]
+db = client['test']
+db
+exit
+exit()
+import folium
+exit
+exit()
+:quit
+:exit
+:quit
+:help
+exit
+exit()
+import music21
+quit()
+from music21 import *
+note
+f = note.Note("F5")
+f
+f.name
+f.octave
+f.pitch
+f.pitch.frequency
+bflat = note.Note("B-2")
+f.show()
+exit()
+from music21 import *
+note
+f = note.Note("F5")
+f.name
+f.octave
+f.show()
+f.show('midi')
+r = note.Rest()
+r.show()
+exit
+exit()
+exit
+exit()
+from music21 import *
+note
+from music21 import *
+note
+exit()
+from music21 import *
+note
+dir(note)
+exit()
+exit
+exit()
+help
+help()
+modules
+e
+exit
+exit()
+import os
+os.getcwd()
+import os,sys
+os.path.dirname(os.path.abspath(sys.argv[0])) 
+exit()
+exit
+exit()
+help()
+modules
+exit()
+exit9)
+exit()
+c
+exit()
+exit
+exit()
+exit
+exit()

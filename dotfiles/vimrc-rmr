@@ -1,0 +1,27 @@
+" vim setup based on:
+"  https://medium.com/@jeantimex/how-to-configure-iterm2-and-vim-like-a-pro-on-macos-e303d25d5b5c
+
+
+" PLUGINS -------------------------
+call plug#begin('~/.vim/plugged')
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'scrooloose/nerdtree'
+    Plug 'junegunn/fzf'
+call plug#end()
+
+
+" FONTS  -------------------------
+let g:airline_powerline_fonts = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+
+" FUZZY SEARCH --------------------
+set rtp+=/usr/local/opt/fzf
+
+
+" NERDTree on startup ------------
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+

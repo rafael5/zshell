@@ -1,0 +1,15 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+www2.ed.gov	0	1	1582396532	31536000
+raw.githubusercontent.com	0	0	1609632781	31536000
+github-releases.githubusercontent.com	0	0	1612653543	31536000
+sourceforge.net	0	0	1603903929	31536000
+www.finanzen.ch	0	1	1606504491	31536000
+data.ct.gov	0	1	1594348773	31536000
+www.b4p.app	0	0	1609700099	31556952
+www.fsis.usda.gov	0	1	1596287382	31536000
+georgzurbonsen.github.io	0	0	1604156986	31556952
+github.com	0	1	1612653543	31536000
+en.wikipedia.org	0	1	1606505717	106384710
+cdnjs.cloudflare.com	0	0	1608760319	15780000

@@ -1,0 +1,58 @@
+# bash
+# brew install bash  (mac version shipped version is ancient)
+alias bash-bashrc='code ~/.bashrc'
+alias bash-omybash='code $OSH'
+
+# aliases
+source ~/zshell/aliases/unix.sh
+source ~/zshell/aliases/mac-apps.sh
+source ~/zshell/aliases/bookmarks.sh
+
+
+# ----------------------------------------
+# oh-my-bash:   https://github.com/ohmybash/oh-my-bash
+# intallation: set OSH environment variable to set installation path:
+export OSH=$HOME/zshell/oh-my-bash
+# install
+
+# theme: https://github.com/ohmybash/oh-my-bash/tree/master/themes
+# random clean cupcake  powerline-plain ...
+OSH_THEME="powerline-plain"         
+
+# completions: https://github.com/ohmybash/oh-my-bash/tree/master/completions
+completions=(
+)
+
+# aliases: <instead source: zshell/aliases/...>
+aliases=(  
+)
+
+# plugins: https://github.com/ohmybash/oh-my-bash/tree/master/plugins
+plugins=(
+)
+
+source $OSH/oh-my-bash.sh
+# ----------------------------------------
+
+
+
+
+# fuzzy search: https://github.com/junegunn/fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+alias fzf-help='open https://github.com/junegunn/fzf/wiki/examples'
+
+
+# bookmark: https://github.com/Szymongib/bookmark
+
+# googler:  https://github.com/jarun/googler ; brew install
+
+# figlet: https://en.wikipedia.org/wiki/FIGlet; brew install
+
+
+
+
+# bash startup
+home
+clear
+cal 

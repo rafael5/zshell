@@ -1,0 +1,7 @@
+
+# see .profile for initialization and path
+
+
+# the following conflicts with brew installed nvm / node:
+# prefix=/usr/local
+# scripts-prepend-node-path=true
