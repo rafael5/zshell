@@ -14,7 +14,7 @@ https://stackoverflow.com/questions/34340578/installing-c-libraries-on-os-x/3434
 
 
 
-# brew install GNU C++  CMAKE and compiler/linker packager
+## brew install GNU C++  CMAKE and compiler/linker packager
     brew install
         gcc         <== GCC 10.x
         g++         <== GCC 10.x
@@ -22,17 +22,17 @@ https://stackoverflow.com/questions/34340578/installing-c-libraries-on-os-x/3434
         pkg-config  <== package compiler/linker settings
 
 
-# set path loading order (precedence) in  /etc/paths
+## set path loading order (precedence) in  /etc/paths
     /usr/local/bin      (brew)
     /usr/bin            (apple)
 
 
-# symlink gcc-10 (brew name) to gcc (system name)
+## symlink gcc-10 (brew name) to gcc (system name)
     ln -sf /usr/local/bin/gcc-10  /usr/local/bin/gcc
     ln -sf /usr/local/bin/g++-10 /usr/local/bin/g++
 
 
-# VSCode: install plugins
+## VSCode: install plugins
     ms-vscode.cpptools-extension-pack
 
     which includes:
@@ -51,7 +51,7 @@ https://stackoverflow.com/questions/34340578/installing-c-libraries-on-os-x/3434
     => USE CODEBLOCKS INSTEAD OF VSCODE;
 
 
-# install Code:Blocks
+## install Code:Blocks
 https://www.codeblocks.org/downloads/binaries/
 https://sourceforge.net/projects/codeblocks/files/Binaries/13.12/MacOS/CodeBlocks-13.12-mac.zip/download
 
