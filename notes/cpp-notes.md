@@ -4,7 +4,7 @@ https://apple.stackexchange.com/questions/245891/installed-gcc-with-homebrew-now
 https://medium.com/gdplabs/build-and-debug-c-on-visual-studio-code-for-mac-77e05537105e
 https://medium.com/@divyendu.narayan/
 
-visual-studio-code-setup-in-mac-os-to-build-and-debug-c-cmake-projects-45a78b29e49
+https://medium.com/@divyendu.narayan/visual-studio-code-setup-in-mac-os-to-build-and-debug-c-cmake-projects-45a78b29e49
 
 https://dev.to/rizz0s/my-vscode-c-opencv-macos-config-80k
 
@@ -28,8 +28,8 @@ https://stackoverflow.com/questions/34340578/installing-c-libraries-on-os-x/3434
 
 
 # symlink gcc-10 (brew name) to gcc (system name)
-ln -sf /usr/local/bin/gcc-10  /usr/local/bin/gcc
-ln -sf /usr/local/bin/g++-10 /usr/local/bin/g++
+    ln -sf /usr/local/bin/gcc-10  /usr/local/bin/gcc
+    ln -sf /usr/local/bin/g++-10 /usr/local/bin/g++
 
 
 # VSCode: install plugins
@@ -46,15 +46,14 @@ ln -sf /usr/local/bin/g++-10 /usr/local/bin/g++
     LiveShare Extension Pack
     Doxygen Documentation Generator
     Better C++ Syntax
-
-
-=> FAIL:  VSCode to difficult to configure cmake/build; no good instructions online
-=> USE CODEBLOCKS INSTEAD OF VSCODE;
+    
+    => FAIL:  VSCode to difficult to configure cmake/build; no good instructions online
+    => USE CODEBLOCKS INSTEAD OF VSCODE;
 
 
 # install Code:Blocks
 https://www.codeblocks.org/downloads/binaries/
 https://sourceforge.net/projects/codeblocks/files/Binaries/13.12/MacOS/CodeBlocks-13.12-mac.zip/download
 
-=> THIS WORKS OUT OF THE BOX
+    => THIS WORKS OUT OF THE BOX
 
