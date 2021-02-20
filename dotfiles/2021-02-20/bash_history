@@ -1,0 +1,1005 @@
+ll
+#1613794921
+./c++ver
+#1613794923
+..
+#1613794924
+ll
+#1613794938
+sudo rm -r opencv/
+#1613794944
+cll
+#1613794967
+cd cppdebug/
+#1613794968
+cll
+#1613795006
+cd build/
+#1613795007
+cll
+#1613795015
+..
+#1613795016
+ll
+#1613795019
+sudo rm -r
+#1613795024
+sudo rm -r build/
+#1613795026
+cll
+#1613795028
+..
+#1613795029
+ll
+#1613795032
+cd cppdebug/
+#1613795032
+cll
+#1613795051
+mkdir build
+#1613795054
+cd build/
+#1613795059
+cmake ..
+#1613795092
+which gcc
+#1613795136
+path
+#1613795143
+echo $PATH
+#1613795151
+c
+#1613795152
+path
+#1613795204
+which gcc
+#1613795237
+ll /usr/local/bin/
+#1613795296
+which gcc
+#1613795312
+which gcc-10
+#1613795319
+which g++-10
+#1613795343
+print -v version /usr/local/opt/gcc@<->(n[-1])
+#1613795470
+make CPP=/usr/local/bin/g++-10 all
+#1613795544
+ll /usr/local/opt/g*
+#1613795591
+cd ~/cpp/
+#1613795592
+ll
+#1613795614
+code homebrew-cpp.sh
+#1613795628
+ll
+#1613795634
+chmod +x homebrew-cpp.sh 
+#1613795639
+sudo chmoe +x homebrew-cpp.sh 
+#1613795646
+sudo chmod +x homebrew-cpp.sh 
+#1613795647
+ll
+#1613795651
+./homebrew-cpp.sh 
+#1613795675
+gcc --version
+bash
+bash
+bash
+#1613795853
+which bash
+#1613795857
+bash --version
+#1613795873
+code .profile 
+#1613795896
+brew install bash
+#1613795939
+gcc --version
+#1613795964
+g++ --version
+#1613795969
+cd cpp/
+#1613795969
+ll
+#1613795976
+cd b4p/
+#1613795977
+ll
+#1613796012
+open -a "XCode"
+/Users/rafael/Library/Developer/Xcode/DerivedData/cppXcode-fesjobdwufnpuqgzaqewctusgidw/Build/Products/Debug/cppXcode ; exit;
+#1613796204
+which gcc
+#1613796209
+which g++
+#1613796215
+path
+#1613796246
+cd /usr/local/bin/
+#1613796249
+ll
+#1613796310
+ll /usr/bin/
+#1613796374
+ll /usr/local/bin/m*
+#1613796388
+ll /usr/local/bin/cm*
+#1613796457
+/usr/local/bin/gcc --version
+#1613796466
+which gcc
+#1613796487
+/usr/bin/gcc --version
+#1613796505
+/usr/local/bin/gcc-10 --version
+#1613796604
+which gcc-10
+#1613796628
+which g++-10
+#1613796708
+code ~/.profile 
+#1613796957
+ln -sf /usr/local/bin/gcc-10  /usr/local/bin/gcc
+#1613796989
+ln -sf /usr/local/bin/g++-10 /usr/local/bin/g++
+#1613797010
+which gcc
+#1613797015
+which g++
+#1613797022
+g++ --version
+#1613797052
+gcc --version
+#1613797057
+which gcc
+#1613797060
+gcc
+#1613797067
+gcc --version
+#1613797085
+which gcc
+#1613797090
+cd /usr/local/bin/
+#1613797092
+la
+#1613797094
+ll
+#1613797095
+cll
+#1613797177
+brew install nvm
+#1613797206
+code .profile 
+#1613797295
+which gcc
+#1613797299
+gcc --version
+#1613797304
+g++ --version
+#1613797321
+which gcc
+#1613797323
+which g++
+#1613797349
+code zshell/notes/cpp-notes.md
+#1613797393
+gcc --version
+#1613797431
+g++ --version
+#1613797455
+cmake --version
+#1613797581
+c
+#1613797780
+cd /usr/bin/
+#1613797785
+ll g*
+#1613797802
+ll cm*
+#1613797808
+ll m*
+#1613797819
+which cmake
+#1613797912
+gcc --version
+#1613797916
+g++ --version
+#1613798484
+brew install pkg-config
+#1613798549
+c
+#1613798551
+brew list
+#1613798718
+home
+#1613798720
+cll
+#1613798723
+cd cpp/
+#1613798724
+cll
+#1613799472
+brew list
+/Applications/CodeBlocks.app/Contents/MacOS/cb_console_runner DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:. /Users/rafael/cpp/codeblocks/testCPP/bin/Debug/testCPP 
+#1613799636
+ll
+#1613799642
+cd b4p/
+#1613799643
+ll
+#1613799655
+la b4p
+#1613799663
+..
+#1613799664
+ll
+#1613799674
+cd b4p/
+#1613799675
+ll
+#1613799686
+open Beyond4P_Code/
+#1613799703
+sudo rm -r Beyond4P_Code/
+#1613799710
+cll
+#1613799718
+ll b4p
+#1613799722
+..
+#1613799722
+ll
+#1613799728
+sudo rm -r b4p/
+#1613799729
+cll
+#1613799738
+l codeblocks/
+#1613799748
+cll
+#1613799775
+cp ~/git/gzb/Beyond4P_Code/
+#1613799791
+cp ~/git/gzb/Beyond4P_Code/ .
+#1613799795
+ll
+#1613799809
+mkdir B4P
+#1613799832
+cp ~/git/gzb/Beyond4P_Code/  B4P/
+#1613799848
+cp ~/git/gzb/Beyond4P_Code  B4P
+#1613799883
+open ~/git/gzb/
+#1613801173
+brew-all 
+#1613801483
+ll
+#1613801484
+cll
+#1613801497
+code homebrew-cpp.sh 
+#1613801508
+rm homebrew-cpp.sh 
+#1613801510
+cll
+#1613801530
+cd codeblocks/
+#1613801530
+ll
+#1613801534
+cd testCPP/
+#1613801535
+ll
+#1613801546
+open testCPP.cbp 
+#1613801563
+f..
+#1613801567
+..
+#1613801567
+ll
+#1613801569
+..
+#1613801569
+ll
+/Applications/CodeBlocks.app/Contents/MacOS/cb_console_runner DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:. /Users/rafael/cpp/codeblocks/testCPP/bin/Debug/testCPP 
+#1613801617
+code hello/
+#1613801683
+cd hello/
+#1613801684
+ll
+#1613801686
+./hello
+#1613801690
+..
+#1613801691
+ll
+#1613801703
+cd cppver/
+#1613801705
+ll
+#1613801725
+..
+#1613801726
+ll
+#1613801729
+code cppver/
+#1613801822
+cd cppver/
+#1613801823
+ll
+#1613801826
+./c++ver
+#1613801828
+..
+#1613801828
+ll
+#1613801862
+mv cppver/ cpp-ver
+#1613801871
+mc cppdebug/ cpp-debug
+#1613801872
+cll
+#1613801882
+mv cppdebug/ cpp-debug
+#1613801884
+cll
+#1613801894
+mv cppXcode/ cpp-xcode
+#1613801896
+cll
+#1613801905
+code cpp-debug/
+#1613802002
+cd cpp-debug/
+#1613802003
+ll
+#1613802007
+./test
+#1613802029
+cll
+bash
+bash
+#1613802031
+c
+bash
+bash
+#1613802119
+ll
+#1613802122
+cd cpp/
+#1613802122
+ll
+#1613802124
+cll
+#1613802129
+cd B4P/
+#1613802130
+ll
+#1613802135
+code Beyond4P_Code/
+#1613802372
+ll
+#1613802376
+cd Beyond4P_Code/
+#1613802377
+la
+#1613802431
+open Beyond4P_Code.cbp 
+#1613802480
+hoe
+#1613802482
+home
+bash
+#1613803090
+docker-start 
+#1613803108
+docker pull chaneyk/spin
+bash
+#1613803270
+brew list
+#1613803274
+docker-list 
+#1613803284
+docker-rm
+#1613803289
+c
+#1613803297
+docker-prune 
+#1613803306
+docker-stop 
+bash
+#1613822754
+which gcc
+#1613822761
+gcc --version
+#1613822767
+g++ --version
+#1613822790
+cll
+#1613822792
+cla
+#1613822797
+cl
+#1613822813
+cd julia/
+#1613822814
+ll
+#1613822822
+which julia
+#1613822825
+julia
+#1613822832
+brew lis
+#1613822836
+brew list
+#1613822888
+docker-info 
+#1613822892
+docker-list 
+#1613822899
+docker-apps 
+#1613822913
+home
+#1613822917
+cd do
+#1613822922
+cd docker
+#1613822923
+..
+#1613822929
+home; cd docker/
+#1613822931
+cl
+#1613822933
+l
+#1613822935
+cll
+#1613822957
+cd a_dockerfiles/
+#1613822958
+cll
+#1613823003
+code ~/zshell/notes/cpp-notes.md 
+#1613823252
+l /etc/paths.d/
+#1613823262
+vi /etc/paths
+#1613823594
+l /Applications/Code*
+#1613823609
+l /Applications/Co*
+#1613823620
+ll
+#1613823621
+cll
+#1613823630
+open -a "CodeBlocks"
+#1613823907
+vi dockerbuild-notes.md 
+#1613823953
+cll
+#1613823964
+vi Dockerfile-ydb-rmr 
+#1613826448
+mv Dockerfile-ydb-rmr dockerfile-ydb-rmr
+#1613826451
+cll
+#1613826467
+mv Dockerfile-ubuntu dockerfile-ubuntu
+#1613826469
+cll
+#1613826483
+mv Dockerfile-centos dockerfile-centos
+#1613826485
+cll
+#1613826510
+..
+#1613826510
+l
+#1613826512
+cll
+#1613826521
+code a_dockerfiles/
+#1613826562
+cd a_dockerfiles/
+#1613826563
+cll
+#1613826585
+docker build -f dockerfile-ydb-rmr .
+#1613826594
+docker-start 
+#1613826597
+cll
+#1613826600
+cd a_dockerfiles/
+#1613826604
+cll
+#1613826626
+docker build -f dockerfile-ydb-rmr .
+#1613826822
+home
+#1613826824
+cl
+#1613826833
+home
+#1613826865
+cll
+#1613826866
+cl
+#1613826948
+ll
+#1613826956
+code dockerfile-ydb-rmr 
+#1613827040
+docker build -f dockerfile-ydb-rmr .
+#1613827163
+c
+#1613827165
+docker build -f dockerfile-ydb-rmr .
+#1613827188
+c
+#1613827189
+docker build -f dockerfile-ydb-rmr .
+#1613827231
+c
+#1613827232
+docker build -f dockerfile-ydb-rmr .
+#1613827440
+c
+#1613827443
+docker build -f dockerfile-ydb-rmr .
+#1613827527
+c
+#1613827528
+docker build -f dockerfile-ydb-rmr .
+#1613827566
+c
+#1613827567
+docker build -f dockerfile-ydb-rmr .
+#1613827694
+c
+#1613827695
+docker build -f dockerfile-ydb-rmr .
+#1613828123
+printf %"$COLUMNS"s | tr " " "-"
+#1613828139
+c
+#1613828141
+printf %"$COLUMNS"s | tr " " "-"
+#1613828150
+c
+#1613828183
+print('-'*80) 
+#1613828198
+printf %"$COLUMNS"s | tr " " "-"
+#1613828204
+printf('-'*80) 
+#1613828731
+export COLUMNS
+#1613828741
+printf %"$(tput cols)"s |tr
+#1613828772
+$COLUMNS 
+#1613828785
+echo $COLUMNS
+#1613828892
+printf '%*s ' "$(tput cols)" '' | tr ' ' - 
+#1613828925
+printf %"$COLUMNS"s | tr " " "-"
+#1613828936
+tput
+#1613828975
+tr
+#1613828983
+tldr tr
+#1613829017
+man tr
+#1613829028
+help
+#1613829049
+helpdev 
+#1613829058
+cl
+#1613829060
+cll
+bash
+#1613829104
+printf '%*s ' "$(tput cols)" ''
+#1613829120
+printf %"$COLUMNS"s
+#1613829167
+c
+#1613829179
+alias printline='
+  321  2021-02-20 08:50:58 cl'
+#1613829181
+printline 
+#1613829198
+printf %"$COLUMNS"s | tr " " "-"
+#1613829212
+alias printline='printf %"$COLUMNS"s | tr " " "-"'
+#1613829214
+printline 
+#1613829374
+c
+#1613829387
+print('-'*80) 
+#1613829388
+c
+#1613829406
+docker build -f dockerfile-ydb-rmr .
+#1613829441
+c
+#1613829442
+docker build -f dockerfile-ydb-rmr .
+#1613829635
+printf %"$COLUMNS"s | tr " " "-"
+#1613829667
+c
+#1613829669
+docker build -f dockerfile-ydb-rmr .
+#1613829698
+c
+#1613829703
+docker build -f dockerfile-ydb-rmr .
+#1613829786
+code ~/zshell/aliases/aliases-bash.sh 
+#1613829905
+c
+#1613829906
+alias dividerline='printf %"$COLUMNS"s | tr " " "-"'
+#1613829909
+dividerline 
+#1613829992
+fir
+#1613829995
+fire
+#1613830078
+alias dividerline='printf %"$COLUMNS"s | tr " " "-"'
+#1613830083
+dividerline 
+#1613830239
+printline 
+#1613830298
+c
+#1613830303
+printline 
+#1613830494
+c
+#1613830498
+docker build -f dockerfile-ydb-rmr .
+#1613830787
+docker images
+#1613830800
+docker system prune --volumes
+#1613830810
+docker images
+#1613830828
+c
+#1613830830
+docker images
+#1613830856
+cll
+#1613830869
+docker build dockerfile-ydb-rmr .
+#1613830885
+docker build -f dockerfile-ydb-rmr .
+#1613831044
+code ~/zshell/aliases/aliases-docker.sh 
+#1613831244
+ll
+#1613831270
+mv dockerfile-ydb-rmr df-ydb-rmr
+#1613831273
+cll
+#1613831285
+mv dockerfile-centos df-centos
+#1613831291
+mv dockerfile-ubuntu df-ubuntu
+#1613831292
+cll
+#1613831331
+mv df-ydb-rmr df-rmr-ydb
+#1613831333
+cll
+#1613831365
+docker build -f df-rmr-ydb .
+#1613831405
+c
+#1613831408
+docker images
+#1613831432
+docker-rm 
+#1613831444
+docker-stop 
+#1613831452
+docker-prune 
+#1613831464
+docker iimages
+#1613831466
+docker images
+#1613831494
+docker-rm
+#1613831499
+docker-list 
+#1613831502
+cll
+#1613831510
+docker build -f df-rmr-ydb .
+#1613831552
+docker images
+#1613831663
+docker build -t rafael/ydb-rmr -f df-rmr-ydb .
+#1613831672
+docker images
+#1613831748
+docker build -t ydb-rmr -f df-rmr-ydb .
+#1613831751
+docker images
+#1613831804
+docker system prune --volumes
+#1613831807
+docker images
+#1613831820
+docker-stop
+#1613831824
+docker-rm
+#1613831834
+docker-prune 
+#1613831838
+docker images
+#1613831843
+docker-rm
+#1613831856
+docker-stop 
+#1613831860
+docker-list 
+#1613831868
+cll
+#1613831889
+mv df-rmr-ydb df-ydb-rmr
+#1613831890
+cll
+#1613831984
+docker build -f df-ydb-rmr -t ydb-rmr .
+#1613831988
+docker images
+#1613832023
+docker build -f df-ydb-rmr -t rafael/ydb-rmr .
+#1613832026
+docker images
+#1613832032
+docker-prune 
+#1613832035
+docker images
+#1613832172
+docker run -it -v ~/docker/ydb-data:/data --network=host ydb-rmr
+#1613832410
+ll
+#1613832411
+cll
+#1613832575
+docker build -t rafael/ydb-rmr -f df-ydb-rmr .
+#1613832579
+docker images
+#1613832609
+docker build -t ydb-rmr -f df-ydb-rmr .
+#1613832613
+c
+#1613832615
+docker images
+#1613832626
+docker run -it -v ~/docker/ydb-data:/data --network=host ydb-rmr
+#1613832656
+cll
+#1613832662
+code df-ydb-rmr 
+#1613834169
+docker build  -t ydb-rmr -f df-ydb-rmr .
+#1613834173
+docker images
+#1613834200
+cll
+#1613834203
+docker images
+#1613834217
+docker run -it -v ~/docker/ydb-data:/data --network=host ydb-rmr
+#1613834269
+..
+#1613834270
+ll
+#1613834320
+docker run -it -v ~/docker/ydb-data:/data --network=host ydb-rmr
+#1613834369
+cd ydb-data/
+#1613834371
+ll
+#1613834465
+tldr ln
+#1613834524
+ls -s ~/zshell/  zshell
+#1613834537
+ln -s ~/zshell/ zshell
+#1613834538
+ll
+#1613834545
+cd zshell/
+#1613834546
+ll
+#1613834547
+..
+#1613834548
+ll
+#1613834560
+docker run -it -v ~/docker/ydb-data:/data --network=host ydb-rmr
+#1613835214
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613835216
+..
+#1613835217
+ll
+#1613835219
+cd a_dockerfiles/
+#1613835222
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613835226
+docker images
+#1613835236
+docker run -it -v ~/docker/ydb-data:/data --network=host ydb_rmr
+#1613835409
+cl
+#1613835410
+cll
+#1613835416
+cd zshell/
+#1613835417
+cll
+#1613835437
+ll linux/
+#1613835442
+ll notes/
+#1613835461
+cll
+bash
+#1613835469
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613835478
+docker run -it -v ~/docker/ydb-data:/data -v ~/zshell:/data --network=host ydb_rmr
+#1613835500
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613835561
+ll
+#1613835562
+..
+#1613835564
+ll
+#1613835566
+cd ydb-data/
+#1613835567
+ll
+#1613835616
+cll
+#1613835746
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613835792
+cp ~/zshell/aliases/aliases-bash.sh 
+#1613835806
+cp ~/zshell/aliases/aliases-bash.sh  ~/docker/ydb-data/
+#1613835808
+ll
+#1613835821
+sudo chmod +x aliases-bash.sh 
+#1613835824
+ll
+#1613835830
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613836068
+..
+#1613836069
+ll
+#1613836132
+code ~/zshell/
+#1613836428
+ll
+#1613836430
+cd a_dockerfiles/
+#1613836431
+ll
+#1613836439
+code df-ydb-rmr 
+#1613836520
+c
+#1613836521
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613837013
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613837065
+run 'ydb-rmr' container with shared volumes host:guest
+#1613837074
+docker images
+#1613837093
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613837099
+run 'ydb-rmr' container with shared volumes host:guest
+#1613837111
+c
+#1613837112
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613837204
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613837288
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613837362
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613837819
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613838245
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613838341
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613838472
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613838694
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613838858
+docker build  -t ydb_rmr -f df-ydb-rmr .
+#1613839058
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613839214
+ll
+#1613839278
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+#1613839422
+ll
+#1613839444
+mv df-ydb-rmr df-ydb-axiom
+#1613839446
+ll
+#1613839485
+code df-ydb-axiom 
+#1613839542
+ll
+#1613839550
+docker build  -t ydb_axiom -f df-ydb-axiom .
+#1613839554
+docker images
+#1613839836
+docker build  -t ydb_axiom -f df-ydb-axiom .
+#1613839841
+docker images
+#1613839847
+docker run -it -v ~/docker/ydb-data:/data  --network=host ydb_rmr
+bash
+exit
+#1613842257
+l
+#1613842258
+ll
+#1613842285
+la zshell-a/
+#1613842291
+sudo rm -r zshell-a/
+#1613842295
+ll
+#1613842297
+la
+#1613842299
+cla
+#1613842436
+cd docker/ydb-data/axiom/
+#1613842437
+cll
+#1613842440
+./install 
+#1613842597
+ome
+#1613842598
+home
