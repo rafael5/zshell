@@ -6,13 +6,12 @@ LABEL Description="Ubuntu server with end-user cli tools"
 
 
 
-RUN echo "------- USER ID -------"
+RUN echo "------- USER/GROUP ID -------"
 ARG NB_USER="rafael"
 ARG NB_UID="1000"
 ARG NB_GID="100"
 
 ENV HOME=/home
-
 
 
 RUN echo "------- SHELL ----------"
@@ -41,7 +40,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 
 
 RUN echo "------  LOCALE -------"
-# must install locales before running
+# must install locales above before running
 RUN figlet "locale"
 RUN locale-gen "en_US.UTF-8"
 ENV LANG=en_US.UTF-8 \
@@ -93,12 +92,11 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 
 
 
-RUN echo "------ Permissions script ------"
+RUN echo "------ PERMISSIONS ------"
 RUN figlet "permissions"
 # Script to fix permissions of copied files and scripts
-COPY   fix-permissions /usr/local/bin/fix-permissions
+COPY   /scripts/fix-permissions /usr/local/bin/fix-permissions
 RUN    chmod a+rx /usr/local/bin/fix-permissions
-
 # Setup work directory (for backward-compatibility)
 # RUN mkdir "/home/$NB_USER" 
 # RUN mkdir "/home/$NB_USER/work" 
@@ -108,7 +106,7 @@ RUN    chmod a+rx /usr/local/bin/fix-permissions
 
 
 RUN echo "------ LSD ------"
-# requires: NA (binary install)
+# requires: (binary install)
 RUN figlet "LSD"
 WORKDIR /home/downloads
 ADD https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb /home/downloads
@@ -117,36 +115,29 @@ RUN chmod +x lsd-musl_0.19.0_amd64.deb \
 
 
 
-
 RUN echo "------ TTYD ------"
 # requires: build-essential make cmake libjson-c-dev libwebsockets-dev tini
 RUN figlet "TTYD"
 # binary release: https://github.com/tsl0922/ttyd/releases
 # Copy and run ttyd installation script: 
-COPY   install-ttyd.sh  /home/downloads/install-ttyd.sh
+COPY   /scripts/install-ttyd.sh  /home/downloads/install-ttyd.sh
 RUN    chmod a+rx /home/downloads/install-ttyd.sh
 RUN    /home/downloads/install-ttyd.sh
-
-# TTYD Usage: https://github.com/tsl0922/ttyd/wiki/Example-Usage
-# Manual start on CLI:
-#    ttyd -p 8081 bash
-# Auto-start when run container
-#    ENTRYPOINT ["/sbin/tini", "--"]
-#    CMD ["ttyd", "bash"]
 
 
 
 RUN echo "------ YottaDB ------"
-# requires: build-essential libtinfo5 pkg-config
+# Requires: build-essential libtinfo5 pkg-config
 RUN figlet "YottaDB"
-#Copy and run ydb installation script: 
-COPY   install-ydb.sh  /home/downloads/install-ydb.sh
+# Copy and run ydb installation script: 
+COPY   /scripts/install-ydb.sh  /home/downloads/install-ydb.sh
 RUN    chmod a+rx /home/downloads/install-ydb.sh
 RUN    /home/downloads/install-ydb.sh
 
 
 
 
+RUN echo "------ STARTUP ------"
 # Startup directory
 WORKDIR /home
 
@@ -154,6 +145,12 @@ WORKDIR /home
 EXPOSE 8081
 
 
+# TTYD Usage: https://github.com/tsl0922/ttyd/wiki/Example-Usage
+# Manual start on CLI:
+#    ttyd -p 8081 bash
+# Auto-start when run container
+#    ENTRYPOINT ["/sbin/tini", "--"]
+#    CMD ["ttyd", "bash"]
 
 
 

@@ -1,19 +1,6 @@
-FROM ubuntu:20.04
-ENV HOME /home
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && \
-    apt-get install --yes --no-install-recommends \
-        apt-utils \
-        wget \
-        vim \
-        figlet \
-        && \
-    apt-get clean
 
-
-# https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+m/develop/develop-images/dockerfile_best-practices/
 # https://aws.amazon.com/blogs/opensource/demystifying-entrypoint-cmd-docker/
-
 
 
 #RUN mkdir /tmp/yottadb-src
@@ -88,6 +75,16 @@ RUN apt-get update && \
 # RUN /bin/bash -c "source aliases-bash.sh"
 # RUN source $HOME/.bashrc; echo $HOME
 # ==> NEITHER APPROACH WORKS
+
+
+# RUN echo "------ ALIASES ------"
+# Bash alias only works in interactive shells. 
+# Workaround?  Try small shell script and put in your path
+# ==> DOES NOT WORK
+# COPY   /scripts/aliases-bash.sh /usr/local/bin/aliases-bash
+# RUN    chmod a+rx /usr/local/bin/aliases-bash
+# ENTRYPOINT ["/bin/bash", "-c"]
+# CMD ["/usr/local/bin/aliases-bash"]
 
 
 
