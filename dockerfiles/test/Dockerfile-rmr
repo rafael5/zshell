@@ -1,0 +1,28 @@
+
+# Build:
+#   $ docker build -t ydb_deb:rmr .
+#
+# Use with data persistence:
+#   $ docker run --rm -e ydb_chset=utf-8 -v ~/docker/ydb-data:/data -i -t  ydb_deb:rmr
+
+
+
+# Stage 3: USER PREFERENCES
+FROM ubuntu:${OS_VSN} as ydb-users-release
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+                    dpkg \
+                    wget \
+                    tree \
+                    nano \
+                    fzf \
+                    ack \
+                    figlet \
+                    && \
+    apt-get clean
+
+RUN figlet "LSD"
+RUN wget https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb
+RUN chmod +x lsd-musl_0.19.0_amd64.deb
+CMD dpkg lsd-musl_0.19.0_amd64.deb

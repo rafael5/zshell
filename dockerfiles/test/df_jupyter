@@ -1,0 +1,45 @@
+# https://u.group/thinking/how-to-put-jupyter-notebooks-in-a-dockerfile/
+
+
+#   docker build  -t jupyter_rmr -f df_jupyter .
+#   docker run -it -v ~/docker/image_home:/home -p 8888:8888 jupyter_rmr
+
+
+# base system
+FROM ubuntu:latest
+RUN apt-get update && apt-get -y update
+RUN apt-get install -y build-essential python3.6 python3-pip python3-dev
+RUN pip3 -q install pip --upgrade
+
+
+# copy working directory to /src
+RUN mkdir src
+WORKDIR src/
+COPY . .
+
+
+# install libraries
+RUN pip3 install -r requirements.txt
+RUN pip3 install jupyter
+
+
+# prep data and run code
+RUN python3 module.py
+
+# cleanup
+RUN rm /src/data/raw_data.csv
+
+# startup directory
+WORKDIR /src/notebooks
+
+
+# Add Tini. Tini operates as a process subreaper for jupyter. 
+# This prevents kernel crashes.
+ENV TINI_VERSION v0.6.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+RUN chmod +x /usr/bin/tini
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
+
+# start notebook on startup
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]

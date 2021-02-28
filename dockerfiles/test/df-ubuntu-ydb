@@ -1,0 +1,83 @@
+FROM ubuntu:latest
+
+# ----------------------------------------------------------------------
+# TO BUILD AND RUN:
+# build container from dockerfile in current directory (df-ubuntu-ydb .) and tag image as 'ubuntu_ydb'
+#     docker build  -t ubuntu_ydb -f df-ubuntu-ydb .
+# show resulting image
+#       docker images
+# run 'ubuntu_ydb' container with shared volumes host:guest
+#    docker run -it -v ~/docker:/data  --network=host ubuntu_ydb
+# ----------------------------------------------------------------------
+
+
+# update: -y (quiet)   -qq (double quiet)
+RUN apt update
+
+# upgrade
+# RUN apt upgrade
+
+# build system
+# RUN apt-get install -y \
+#    build-essential\
+#    linux-headers-generic\
+#    dkms\
+#    gcc\
+#    make
+
+
+# core applications
+RUN apt install -y \
+    openssh-server \
+    sudo\
+    curl \
+    wget \
+    dpkg
+
+# optional apps
+RUN apt install -y \
+#    net-tools \
+#    libssl-dev \
+#    tree \
+#    nano \
+#    vim \
+#    git \
+#    fzf \
+#    ack \
+#    htop \
+#    lynx\
+    figlet
+
+
+# LSD
+RUN figlet "LSD"
+RUN wget https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb
+RUN chmod +x lsd-musl_0.19.0_amd64.deb
+CMD dpkg lsd-musl_0.19.0_amd64.deb
+
+
+# RUN figlet "bash"
+# RUN /bin/bash -c 'source $HOME/.bashrc; echo $HOME'
+
+
+
+
+# SSH SERVER --------------------------
+# default docker does not have sudo or openssh server installed
+#RUN apt install  openssh-server sudo -y
+
+# create a user called test and add it to the sudo group 
+#RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
+
+# set the password for the user test to test
+#RUN  echo 'test:test' | chpasswd
+
+# start ssh service
+#RUN service ssh start
+
+# make docker container listen on port 22 (the default for ssh)
+#EXPOSE 22
+
+# start ssh daemon
+#CMD ["/usr/sbin/sshd","-D"]
+

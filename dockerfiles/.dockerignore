@@ -1,0 +1,13 @@
+# Exclude files and directories whose names start with temp
+*/temp*
+
+# Exclude files and directories starting with temp from any subdirectory  two levels below the root. 
+*/*/temp*
+
+# Exclude files and directories in the root directory whose names are a one-character extension of temp.
+temp?
+
+# All markdown files,  *except*  READEME.md
+*.md
+!README.md
+

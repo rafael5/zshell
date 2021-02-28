@@ -1,0 +1,18 @@
+#  docker build  -t theia_rmr -f df_theia .
+#  docker run -it -p 3000:3000 -v ~/docker/image_home:/home theia_rmr
+
+FROM theiaide/theia
+LABEL Description="Theia server"
+ENV HOME=/home 
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install --yes --no-install-recommends \
+        apt-utils \
+        aptitude \
+        figlet \
+        && \
+    apt-get clean
+
+
+

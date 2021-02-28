@@ -1,0 +1,93 @@
+FROM ubuntu:20.04
+ENV HOME /home
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get install --yes --no-install-recommends \
+        apt-utils \
+        wget \
+        vim \
+        figlet \
+        && \
+    apt-get clean
+
+
+# https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+# https://aws.amazon.com/blogs/opensource/demystifying-entrypoint-cmd-docker/
+
+
+
+#RUN mkdir /tmp/yottadb-src
+#ADD CMakeLists.txt /tmp/yottadb-src
+# We want to copy the directories themselves, not their contents.
+# Unfortunately, there is no way to do this with globs, so we have to specify each directory individually.
+# c.f. <https://docs.docker.com/engine/reference/builder/#add>, <https://stackoverflow.com/questions/26504846>
+
+
+
+#ARG NODE_VERSION=13.8.0
+#FROM node:${NODE_VERSION}-stretch-slim AS build-env
+#ADD https://download.oracle.com/otn_software/linux/instantclient/195000/instantclient-basiclite-linux.x64-19.5.0.0.0dbru.zip /tmp/instantclient-basiclite.zip
+#RUN apt-get update \
+#  && apt-get install -y libaio1 bsdtar \
+# && apt-get clean \
+#  && mkdir /opt/instantclient \
+#  && bsdtar --strip-components=1 -xvf /tmp/instantclient-basiclite.zip -C /opt/instantclient \
+#  && cd /opt/instantclient \
+#  && rm -f *jdbc* *occi* *mysql* *jar uidrvci genezi adrci libipc1.so libmql1.so
+
+#FROM node:${NODE_VERSION}-stretch-slim
+#COPY --from=build-env /opt/instantclient/ /opt/instantclient/
+#COPY --from=build-env /lib/x86_64-linux-gnu/libaio.so.1 /lib/x86_64-linux-gnu/libaio.so.1
+#ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/instantclient
+
+
+
+# ------------------
+# build and run:
+# docker build  -t ubuntu/shell -f dockerfile-shell .
+# docker run -it -v ~/docker:/home  ubuntu/shell
+# ------------------
+
+# BASH COMMANDS:  CMD vs ENTRYPOINT
+# https://aws.amazon.com/blogs/opensource/demystifying-entrypoint-cmd-docker/
+
+# RUN figlet "LSD"
+# WORKDIR /home/data
+# SHELL ["/bin/bash", "-c"]
+# RUN mkdir /home/data/tmp \
+#    && wget --no-check-certificate https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb \
+#    && mv lsd-musl_0.19.0_amd64.deb /home/data/tmp
+#    && chmod +x lsd-musl_0.19.0_amd64.deb \
+#    && dpkg -i home/lsd-musl_0.19.0_amd64.deb
+# ENTRYPOINT ["/bin/bash", "-c"]
+
+
+# RUN figlet "= RUN/default ="
+# RUN echo I am using the default /bin/sh
+# RUN ["/bin/bash", "-c", "echo I am using default"]
+
+# RUN figlet "= SHELL/CMD ="
+# SHELL ["/bin/bash", "-c"]
+# CMD echo I am using bash, which is now the default
+
+# RUN figlet "= RUN/RUN ="
+# RUN ["/bin/sh", "-c", "echo I am using /bin/sh"]
+# RUN ["echo", "I don't use a shell at all"]
+
+# RUN figlet "ENTRYPOINT"
+# ENTRYPOINT ["/bin/chamber", "exec", "production", "--"]
+# CMD "/bin/service -d"
+
+
+
+# SOURCE BASH SCRIPTS/ALIASES
+# 1. define shell:
+# SHELL ["/bin/bash", "-c"] 
+# RUN source aliases-bash.sh
+# 2. run using full path of shell:
+# RUN /bin/bash -c "source aliases-bash.sh"
+# RUN source $HOME/.bashrc; echo $HOME
+# ==> NEITHER APPROACH WORKS
+
+
+

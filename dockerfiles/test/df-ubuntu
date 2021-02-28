@@ -1,0 +1,170 @@
+FROM ubuntu:20.04
+
+# FROM must be the first line in Dockerfile; anything before it is ignored
+# Initializes a new build stage and set the Base Image for subsequent instructions. 
+# Starting image may be from any respository https://docs.docker.com/docker-hub/repos/
+
+
+# -----------------------------------------------------------------------------
+# ENVIRONMENT (permanent: persists in image after creation)
+# -----------------------------------------------------------------------------
+# ENV HOME /home
+
+
+# -----------------------------------------------------------------------------
+# ARGUMENTS  (transient: active only during dockerfile execution)
+# -----------------------------------------------------------------------------
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Without DEBIAN_FRONTENT=noninteractive will get error messages:
+#debconf: unable to initialize frontend: Dialog
+#debconf: (TERM is not set, so the dialog frontend is not usable.)
+#debconf: falling back to frontend: Readline
+#debconf: unable to initialize frontend: Readline
+
+
+
+# -----------------------------------------------------------------------------
+# APT-GET
+# -----------------------------------------------------------------------------
+# https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends
+#   DEBIAN_FRONTEND =noninteractive     avoids human dialogs being opened
+#   --no-install-recommends             avoid installing recommended (nonessential) apps
+#   -y   --yes                          yes to all prompts (quiet mode)
+
+
+RUN echo "-------------APT-GET UPDATE----------------->"
+RUN apt-get update
+
+
+RUN echo "---------------APT-UTILS ------------------->"
+RUN apt-get install --yes --no-install-recommends \
+    apt-utils \
+    dpkg \
+    figlet
+
+
+
+RUN echo "-----------------APPS ------------------->"
+RUN apt-get install --yes --no-install-recommends \
+    ca-certificates \
+    wget \
+    curl \
+    git \
+    tar \
+    tldr \
+    man \
+    man-db \
+    nano \
+    vim \
+    bash-completion \
+    fzf \
+    sudo \
+    adduser \
+    aptitude \
+    tree \
+    build-essential \
+    automake \
+    htop \
+&& \
+    apt-get clean \
+&& \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+
+RUN echo "----------------- BASH ------------------->"
+# CMD [ "/bin/bash" ]
+# WORKDIR /home/
+
+
+
+
+RUN echo "----------------- LSD ------------------->"
+# cannot use cd /../... to change directory; must use WORKDIR
+#WORKDIR /home/data 
+#RUN wget --no-check-certificate https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb
+#RUN chmod +x lsd-musl_0.19.0_amd64.deb
+#RUN dpkg -i lsd-musl_0.19.0_amd64.deb
+
+
+
+
+# -----------------------------------------------------------------------------
+# TO BUILD AND RUN:
+# -----------------------------------------------------------------------------
+# build container from dockerfile in current directory (df-ubuntu .) and tag image as 'ubuntu_rmr'
+#     docker build  -t  u2004 -f df-ubuntu .
+# show resulting image
+#       docker images
+# run 'u2004' container with shared volumes host:guest
+#    docker run -it -v ~/docker:/home  u2004
+
+
+
+# RUN OPTIONS
+# https://phoenixnap.com/kb/docker-run-command-with-examples
+# -i, --interactive     Keep STDIN open even if not attached
+# -t, --tty             Allocate a pseudo-TTY
+# -v                    volume share:   host/path:container/path   
+# -p                    port map:       hostPort:containerPort    
+# -d                    detached (runs in background)
+# --network=host
+# --entrypoint "/bin/bash" 
+# -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+# SSH SERVER --------------------------
+# default docker does not have sudo or openssh server installed
+#RUN apt install  openssh-server sudo -y
+
+# create a user called test and add it to the sudo group 
+#RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
+
+# set the password for the user test to test
+#RUN  echo 'test:test' | chpasswd
+
+# start ssh service
+#RUN service ssh start
+
+# make docker container listen on port 22 (the default for ssh)
+#EXPOSE 22
+
+# start ssh daemon
+#CMD ["/usr/sbin/sshd","-D"]
+
+
+
+
+
+
+# -----------------------------------------------------------------------------
+# UNMINIMIZE
+# -----------------------------------------------------------------------------
+# RUN yes | unminimize
+
+# https://www.programmersought.com/article/46215377293/
+# https://askubuntu.com/questions/707621/official-docker-image-for-ubuntu-server
+# https://github.com/verteen/ubuntu-unminimize/blob/32424f309b2fde8f3ca43960a470bc377dd851b8/Dockerfile
+# RUN export DEBIAN_FRONTEND=noninteractive && \
+#    bash -c 'yes | unminimize'
+
+
+
+
+#   openssh-server \
+#   net-tools \
+#   libssl-dev \
+
+#    build-essential\
+#    linux-headers-generic\
+#    dkms\
+#    gcc\
+#    make
+
+
