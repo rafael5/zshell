@@ -141,7 +141,7 @@ ARG <name>[=<default value>]
 
 The ARG instruction defines a variable that users can pass at build-time to the builder with the docker build command using the --build-arg <varname>=<value> flag. If a user specifies a build argument that was not defined in the Dockerfile, the build outputs a warning.
 
-An ARG instruction goes out of scope at the end of the build stage where it was defined. To use an arg in multiple stages, each stage must include the ARG instruction.
+An ARG instruction goes out of scope at the end of the build stage  where it was defined. To use an arg in multiple stages, each stage must include the ARG instruction.
 
 FROM busybox
 ARG SETTINGS
@@ -197,11 +197,6 @@ RUN ["/bin/bash", "-c", "echo I am using bash"]
 RUN echo "-----------------  SHELL /bin/bash ------------------->"
 SHELL ["/bin/bash", "-c"]
 RUN echo I am using bash, which is now the default
-
-RUN cd /home/ \
-    && wget --no-check-certificate https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb
-RUN chmod + x chmod +x lsd-musl_0.19.0_amd64.deb
-RUN dpkg -i home/lsd-musl_0.19.0_amd64.deb
 
 
 
