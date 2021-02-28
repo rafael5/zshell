@@ -5,22 +5,31 @@ alias brew-info='brew info; echo "-----"; brew list;  echo "-----"; echo "brew  
 
 
 
-
 # SERVICES
 # https://github.com/Homebrew/homebrew-services
 # brew services run|start|stop|restart |list | cleanup --all
 
 
 # ESSENTIALS
-# wget              b4p requires
+# ack               grep replacement
+# archey            mac info
 # bash              https://itnext.io/upgrading-bash-on-macos-7138bd1066ba
 # bash-completion   https://sourabhbajaj.com/mac-setup/BashCompletion/
-# ack               grep replacement
-# lsd               ls replacement  (not: exa)
+# bottom
+# calc              calculator
 # fzf               fuzzy search
+# googler           google search
 # htop              top replacement
+# lsd               ls replacement  (not: exa)
+# navi
+# nvm
+# pstree
+# ranger
+# tldr
 # tree
+# ttyd              https://github.com/tsl0922/ttyd
 # vim
+# wget              b4p requires
 
 
 # APPS
@@ -32,7 +41,6 @@ alias brew-info='brew info; echo "-----"; brew list;  echo "-----"; echo "brew  
 # peco              interactive file filter
 # googler           google search
 # cmatrix
-
 #dash
 #figlet
 #findutils
@@ -41,18 +49,17 @@ alias brew-info='brew info; echo "-----"; brew list;  echo "-----"; echo "brew  
 
 
 
-# SHELL-BASH: must install via brew to get 2021 version; mac has only 2007 version 
+# SHELL: BASH:  must install via brew to get 2021 version; mac has only 2007 version 
 # bash                       
 # oh-my-bash        https://github.com/ohmybash/oh-my-bash
 
 
-# SHELLS - OTHER: not compatible with POSIX or bash
+# ---------------------------------------------------------------------------
+# SHELL: OTHERS: not compatible with POSIX or bash
 # https://en.wikipedia.org/wiki/Comparison_of_command_shells
 # zsh               https://en.wikipedia.org/wiki/Z_shell
 # fish              https://en.wikipedia.org/wiki/Fish_(Unix_shell)
 # pwsh              https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1
-
-
 
 
 # zsh: z shell    https://medium.com/@caulfieldOwen/youre-missing-out-on-a-better-mac-terminal-experience-d73647abf6d7

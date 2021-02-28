@@ -12,87 +12,64 @@ https://sourabhbajaj.com/mac-setup/
 
 
 
-# bash 
- bash
- bash-completion
-# disk
-smartmontools   SMART monitoring of SSD
-# find 
- fzf		    fuzzy find
- fd             find replacement  	https://github.com/sharkdp/fd
- googler        google search   	https://github.com/jarun/googler
- lynx		    web browser
-# processes 
- htop           top replacement
- ncdu           ncurses disk usage:  	https://dev.yorhel.nl/ncdu
- btm        	system/process monitor:  	https://github.com/ClementTsang/bottom
-# files
- tree
- nnn            file manager:  https://github.com/jarun/nnn
- ranger         file manager: https://github.com/ranger/ranger
- lsd            ls deluxe
-# help
- navi           cheatsheet for CLI: https://github.com/denisidoro/navi
- tldr
-# system
- openssl
- wget
- bat            cat replacement: https://github.com/sharkdp/bat
- figlet
-# node
-nvm            node version manager
-npm            node package manager
-yarn           extension of npm capabilities (builds on npm)
-# optional
- task               taskwarrior: https://taskwarrior.org/docs/
- cmatrix
- spark              sparkline
-# games
- bastet             bastard tetris: https://fph.altervista.org/prog/bastet.html
+# bash          bash-
+    bash
+    bash-completion
+# disk         smartmontools
+    smartmontools   SMART monitoring of SSD
+# find          fzf fd googler 
+    fzf		        fuzzy find
+    fd              find replacement  	https://github.com/sharkdp/fd
+    googler         google search   	https://github.com/jarun/googler
+    lynx		    web browser
+# processes      htop ncdu btm
+    htop            top replacement
+    ncdu            ncurses disk usage:  	    https://dev.yorhel.nl/ncdu
+    btm        	    bottom: system monitor:  	https://github.com/ClementTsang/bottom
+# files         tree nnn ranger lsd
+    tree
+    nnn             file manager:  https://github.com/jarun/nnn
+    ranger          file manager: https://github.com/ranger/ranger
+    lsd             ls deluxe
+# help          navi tldr
+    navi            cheatsheet for CLI: https://github.com/denisidoro/navi
+    tldr
+    nushell
+# system        openssl wget bat ack pstree psutils xquartz
+    openssl
+    wget
+    bat             cat replacement: https://github.com/sharkdp/bat
+    ack
+    pstree
+    psutils
+    xquartz
+# node          nvm npm yarn
+    nvm             node version manager
+    npm             node package manager
+    yarn            extension of npm capabilities (builds on npm)
+# GNU           gcc cmake gdbm coreutils gnu-sed
+    gcc
+    cmake
+    gdbm
+    coreutils  
+    gnu-sed
+# optional      archie cal figlet cowsay cmatrix task spark
+    archie          apple info
+    cal
+    figlet
+    cowsay
+    cmatrix
+    task            taskwarrior: https://taskwarrior.org/docs/
+    spark           sparkline
+ # games         bastet
+    bastet          bastard tetris: https://fph.altervista.org/prog/bastet.html
 
 
 # games
 https://wiibrew.org/wiki/List_of_homebrew_games
 
 
-
-
 # list (2021-02-19)
-ack
-bash
-bash-completion
-bastet
-bat
-cmake
-cmatrix
-cowsay
-fd
-figlet
-fzf
-gcc
-gdbm
-googler
-hdf5
-htop
-lsd
-lynx
-navi
 ncdu
-ncurses
-nnn
-numpy
-nushell
-nvm
-openssl@1.1
 pcre
 pkg-config
-pstree
-psutils
-ranger
-smartmontools
-task
-tldr
-tree
-wget
-clock
-xquartz

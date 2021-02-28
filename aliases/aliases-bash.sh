@@ -6,11 +6,10 @@
 
 
 #  ---------------------------------------------------------------------------
-#   Bash shortcuts
+#    Bash shortcuts
 #
-#   bash-
-#   unix-
-#   help:           man manwin tldr navi
+#   commands:       bash- unix-
+#   help:           tldr man manwin navi
 #   find:           fd fzf qfind googler lynx
 #   directory:      ranger nnn tree cd 
 #   list files:     ls
@@ -22,18 +21,17 @@
 #   node:           nvm npm yarn
 #   fun:            cmatrix spark bastet task
 #  ---------------------------------------------------------------------------
-alias m='clear; sh ~/zshell/scripts/bash-shortcuts.sh'
+alias m='clear; sh $HOME/zshell/scripts/bash-shortcuts.sh'
 
 alias printline='printf %"$COLUMNS"s | tr " " "-"'
 
-
-alias bash-webguide='echo "UNIX/BASH WEB GUIDE"; open https://www.tutorialspoint.com/unix/unix-getting-started.htm'
+alias bash-cmd='more more $HOME/zshell/notes/unix-cmd.md'
 alias bash-info='echo "SHELL: " $SHELL; echo "BASH_VERSION: "; echo $BASH_VERSION'
-
-alias bash-bashrc="code ~/.bashrc"
-alias bash-profile="code ~/.profile"
+alias bash-webguide='echo "UNIX/BASH WEB GUIDE"; open https://www.tutorialspoint.com/unix/unix-getting-started.htm'
+alias bash-bashrc="code $HOME/.bashrc"
+alias bash-profile="code $HOME/.profile"
 alias bash-ohmybash='code $OSH; open https://github.com/ohmybash/oh-my-bash/blob/master/themes/THEMES.md'
-alias bash-reload='source ~/.bashrc'
+alias bash-reload='source $HOME/.bashrc'
 
 
 # alias sys-info='echo "paths- ports- utils- maint- | info"'
@@ -56,26 +54,26 @@ alias bash-reload='source ~/.bashrc'
 
 
 
-
 #------------------------------------------------------------------------------
-# LIST FILES  (ls -> lsd)
+# LIST FILES  (ls || lsd)
 #------------------------------------------------------------------------------
 # info:    LS replaced with LSD (ls deluxe)
 # req:     install LSD (mac: brew install; linux: dpkg install)
 
-# replace ls with lsd
-alias ls='lsd'        
 
-# shorten ls to l; add -F modifier
-alias l='ls -F'          # Full (/=directory; @=symlink; *=executable)
+# If LSD command exists, alias ls->lsd
+type lsd >/dev/null 2>&1 && \
+    echo "lsd exists; aliasing ls->lsd" && \
+    alias ls=lsd
 
-# derivatives
+
+# shorten ls to l 
+alias l='ls -F'          
 alias ll='l -l'          # main long
 alias l.='l -d .*'       # dot
 alias ll.='l -l -d .*'   # dot long
 alias la='l -a '         # all
 alias lla='l -al '       # all long
-
 # clear screen prior:
 alias cl='c;l '
 alias cl.='c; l.'
@@ -83,11 +81,6 @@ alias cll='c; ll'
 alias cll.='c; ll.'
 alias cla='c; la'
 alias cll='c; ll'
-
-# non-hidden files in current directory
-alias num-files='echo "number of files in pwd: "; echo $(ll | wc -l)'       
-alias num-dotfiles='echo "number of dotfiles in pwd: "; echo $(ll. | wc -l)'
-
 
 # ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1]
 # F = FULL: dir/  executable*   symlink@  socket=  whiteout%  FIFO|
@@ -97,9 +90,6 @@ alias num-dotfiles='echo "number of dotfiles in pwd: "; echo $(ll. | wc -l)'
 # G = colorized (unnecessary with LSD)
 # S = sort by size
 # t = sort by time
-
-
-
 
 
 
@@ -120,7 +110,8 @@ alias ....='cd ..;cd ..;cd ..;clear;pwd;ls'
 alias tree1='tree -L 1'
 alias tree2='tree -L 2'
 alias tree3='tree -L 3'
-#directories only
+
+# directories only
 alias tree1d='tree -L 1 -d'
 alias tree2d='tree -L 2 -d'
 alias tree3d='tree -L 3 -d'
@@ -187,6 +178,7 @@ alias top-mem-hogs='top -l 1 -o rsize | head -20'   # find memory hogs
 alias top-10sec='top -l 9999999 -s 10 -o cpu'       # top update q10 seconds
 alias top-min='top -R -F -s 10 -o rsize'            # minimizes top resource use
  
+
 
 
 #------------------------------------------------------------------------------

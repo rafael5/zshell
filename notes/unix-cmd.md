@@ -1,6 +1,38 @@
 
 # Unix commands
 https://www.tutorialspoint.com/unix/unix-getting-started.htm
+https://wiredpen.com/resources/basic-unix-commands-for-osx/
+https://maker.pro/linux/projects/basic-unix-commands-to-work-on-mac-terminal
+https://learntocodewith.me/command-line/unix-command-cheat-sheet/
+https://www.hostinger.com/tutorials/linux-commands
+https://cameronnokes.com/blog/the-most-useful-bash-commands-for-front-end-development/
+https://linuxhint.com/100_essential_linux_commands/
+
+# signals
+https://linoxide.com/linux-how-to/linux-signals-part-1/
+
+
+
+file types:     [-]reg  [b]lock [c]har [d]ir [l]ink [p]ipe [s]ocket
+file ops:       ls cp mv rm vi cat wc diff more less cat head tail
+search:         find fzf
+dir ops:        pwd cd mkdir rmdir
+permissions:    chown chmod
+help:           tldr man apropros help 
+edit:           code nano vim
+users:          who whois whoami whatis users groups finger passwd uname
+system:         hostname login logout shutdown reboot
+network:        ping ifconfig netstat lsof
+environment:    env
+pipes           grep awk
+processes:      top htop ps pstree kill
+bash:           history
+
+
+other: 
+pushd  popd xargs export cal df  free lscpu lshw locate iostat diff touch wc sleep
+split stat touch locate df du diff tar jobs uname open touch
+useradd | del | mod
 
 
 getting started
@@ -29,6 +61,10 @@ file operations
     cp                  copy file
     mv                  move / rename
     rm                  remove / delete
+    ls                  list files
+    diff
+    more
+ 
 
 directory management
     cd                  change directory
@@ -38,6 +74,7 @@ directory management
     rmdir               remove directory
     mv                  move / rename directory
     .dir                hidden directory
+
 
 file permission / access modes
     owner | group | other(world)
@@ -85,69 +122,6 @@ pipes and filters
     ==> MORE EXAMPLES
 
 
-
-
-
-https://wiredpen.com/resources/basic-unix-commands-for-osx/
-    cd — change directory
-    cp — copy files
-    ls — see a list of files and folders in your current (working) directory
-    mv — move and rename files
-    pwd — see your current (working) directory [print working directory]
-    rm — remove (delete) a file
-    rmdir — remove (delete) a directory
-
-
-https://maker.pro/linux/projects/basic-unix-commands-to-work-on-mac-terminal
-
-directory
-    pwd
-    ls
-    cd
-    mkdir | rmdir
-files
-    rm
-    chmod
-    diff
-    more
-    mv
-misc
-    date
-    echo
-    help
-    history
-    nano
-    sudo
-    ping
-    hostname
-
-
-https://learntocodewith.me/command-line/unix-command-cheat-sheet/
-
-pwd
-mkdir rmdir
-ls
-find
-cd
-hostname
-less
-cp
-mv
-pushd  popd
-grep
-xargs
-cat
-env
-export
-echo
-chown
-chmod
-apropros
-exit
-sudo
-
-
-
     Command + up arrow: jumps to your previous mark
     Command + down arrow: jumps to your next mark
     Command + page up: moves up a page
@@ -157,129 +131,3 @@ sudo
 
 
 
-
-
-https://www.hostinger.com/tutorials/linux-commands
-https://cameronnokes.com/blog/the-most-useful-bash-commands-for-front-end-development/
-https://linuxhint.com/100_essential_linux_commands/
-
-cat
-cal
-df
-help
-pwd
-ls
-uname
-ping
-mkdir
-whatis
-who
-free
-top
-echo
-finger
-groups
-head
-man
-passwd
-w
-whoami
-history
-lscpu
-mv
-ps
-kill
-tail
-env
-hostname
-lshw
-nano
-rm
-ifconfig
-clear
-su
-wget
-last
-locate
-iostat
-pstree
-sudo
-shutdown
-reboot
-cd
-sort
-exit
-diff
-netstat
-lsof
-touch
-wc
-sleep
-split
-stat
-
-useradd | del | mod
-
-
-
-pwd
-ls
-cat
-cd
-rm
-mkdir
-rmdir
-touch
-mv
-cp
-rm
-chmod
-man
-locate
-find
-grep
-sudo
-df
-du
-head
-tail
-diff
-tar
-chmod
-chown
-jobs
-kill
-ping
-wget
-uname
-top
-history
-man
-echo
-hostname
-useraddd, userdel
-
-alias
-
-lsof
-kill
-
-cat
-less
-open
-mkdir
-rm
-touch
-echo
-find
-grep
-alias
-history
-lsof
-kill
-man
-chmod
-
-
-signals
-https://linoxide.com/linux-how-to/linux-signals-part-1/

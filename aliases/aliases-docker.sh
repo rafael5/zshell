@@ -2,14 +2,14 @@
 # -----------------------------------------------------------------------------
 # docker
 # -----------------------------------------------------------------------------
+# https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
 alias docker-info='echo " docker-  start  | stop  | list | rm | prune | apps "'
 alias docker-start='cd ~/docker; echo "starting Docker Desktop App......"; open -a /Applications/Docker.app/Contents/MacOS/Docker'
 alias docker-list='docker ps -a'
-alias docker-stop='docker stop $(docker ps -a -q)'
-alias docker-rm='docker rm $(docker ps -a -q)'
+alias docker-stop-all='docker stop $(docker ps -a -q)'
+alias docker-rm-all='docker rmi $(docker images -a -q -f)'
 alias docker-prune='docker system prune'
 alias docker-apps='echo "DOCKER APPS:    dst- conda- spark- nv- ydb- iris-  pg-  theia-" '
-
 
 
 # -----------------------------------------------------------------------------
