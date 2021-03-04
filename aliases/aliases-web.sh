@@ -4,7 +4,7 @@ alias web-bookmarks='bookmark'
 # https://github.com/Szymongib/bookmark
 
 
-alias web-vacitrix='open https://citrixaccesstoken.va.gov/vpn/index_token_citrix.html'
+alias web-va-citrix='open https://citrixaccesstoken.va.gov/vpn/index_token_citrix.html'
 
 # google
 alias web-gmail='open https://mail.google.com'
@@ -25,3 +25,4 @@ alias web-news-nyt='open https://www.nytimes.com'
 alias web-news-theatlantic='open https://www.theatlantic.com'
 alias web-news-politico='open https://www.politico.com'
 alias web-news-bloomberg='open https://www.bloomberg.com/wealth'
+

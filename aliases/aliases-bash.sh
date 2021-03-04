@@ -143,25 +143,10 @@ alias du-short='echo "disk usage - short - human readable"; du -sh *'
 alias lsof='lsof -i -P -n | sort'
 alias lsof-TCP='lsof -i | grep LISTEN | grep "TCP \*:" | sort'
 alias lsof-OPEN='lsof -i | grep ESTABLISHED | sort'
-alias lsof-LISTEN='lsof -i -P | grep LISTEN | sort'
-alias lsof-UDP='lsof -nP | grep UDP'  # display open UDP sockets
-alias lsof-TCP='lsof -nP | grep TCP'  # display open TCP sockets
-alias lsof-TCPIP='lsof -i'            # all open TCP/IP sockets
 
 # Internet socket: IPv4, IPv6; NFS file; or UNIX domain socket.
 # REG CHR DIR  IPv4 IPv6 unix PIPE systm 
 
-
-#  NETWORKING - <UNTESTED>
-#  ---------------------------------------------------------------------------
-alias netCons='lsof -i'                                   # Show all open TCP/IP sockets
-alias lsock='sudo /usr/sbin/lsof -i -P'                   # Display open sockets
-alias lsock-UDP='sudo /usr/sbin/lsof -nP | grep UDP'      # Display only open UDP sockets
-alias lsock-TCP='sudo /usr/sbin/lsof -nP | grep TCP'      # Display only open TCP sockets
-alias ipInfo-en0='ifconfig getpacket en0'                 # Get info on connections for en0
-alias ipInfo-en1='ifconfig getpacket en1'                 # Get info on connections for en1
-alias openPorts='sudo lsof -i | grep LISTEN'              # All listening connections
-alias showBlocked='sudo ipfw list'                        # All ipfw rules inc/ blocked IPs
 
 
 
@@ -175,8 +160,6 @@ alias ps-cpu-hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 
 alias top='top -o cpu'                              # order by cpu
 alias top-mem-hogs='top -l 1 -o rsize | head -20'   # find memory hogs
-alias top-10sec='top -l 9999999 -s 10 -o cpu'       # top update q10 seconds
-alias top-min='top -R -F -s 10 -o rsize'            # minimizes top resource use
  
 
 

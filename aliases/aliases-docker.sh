@@ -23,6 +23,14 @@ alias docker-env="env | grep DOCKER_"
 alias docker-machine-list="docker-machine ls"
 
 
+# -----------------------------------------------------------------------------
+# sage math
+# -----------------------------------------------------------------------------
+alias sage-docker-run='docker run -it sagemath/sagemath:latest'
+alias sage-docker-jupyter-run= 'docker run -p8888:8888 sagemath/sagemath:latest sage-jupyter'
+alias sage-docker-jupyter-open='open http://127.0.0.1:8888/?token=18b31be6b3647ed845c31354d5652a87106eb7318b3b0e78'
+
+
 
 # -----------------------------------------------------------------------------
 # datascience toolbox (dst)

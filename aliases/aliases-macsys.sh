@@ -66,6 +66,17 @@ alias calc='open -a /Applications/Numi.app/Contents/MacOS/Numi'
 alias pfinder='open /Applications/Path\ Finder7.app'
 alias cleanmymac='open -a /Applications/CleanMyMac\ 3.app/Contents/MacOS/CleanMyMac\ 3'
 
+alias sage='cd /Applications/SageMath; ./sage; home'
+
+
+
+# --------------------------------------------------
+# sage:  path
+# --------------------------------------------------
+# create aliases directory variable and add to PATH
+#export SAGE_PATH=/Applications/SageMath
+#export PATH="$SAGE_PATH:$PATH"   
+
 
 
 
