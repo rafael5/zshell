@@ -11,29 +11,29 @@
 #-------------------------------------------------------------------------------------
 # http://www.theinstructional.com/guides/a-closer-look-at-system-information
 
-alias macsys-profile-report='echo "see profile report on desktop"; system_profiler -detailLevel mini -xml > ~/Desktop/system_profile_mini.spx '
-alias macsys-profile-basic='system_profiler -detailLevel basic > sysprofile.md; code systemprofile.md '
-alias macsys-prefs='open /Applications/System\ Preferences.app'
-alias macsys-softwareupdate='softwareupdate'
-alias macsys-cli-list=' ls /Library/Developer/CommandLineTools/usr/bin/'
-alias macsys-DSStore-clean='echo "cleaning all .DS_Store files recursively"; sudo find . -name \.DS_Store -exec rm -v {} \;'
+alias mac-profile-report='echo "see profile report on desktop"; system_profiler -detailLevel mini -xml > ~/Desktop/system_profile_mini.spx '
+alias mac-profile-basic='system_profiler -detailLevel basic > sysprofile.md; code systemprofile.md '
+alias mac-prefs='open /Applications/System\ Preferences.app'
+alias mac-softwareupdate='softwareupdate'
+alias mac-cli-list=' ls /Library/Developer/CommandLineTools/usr/bin/'
+alias mac-DS_Store-clean='echo "cleaning all .DS_Store files recursively"; sudo find . -name \.DS_Store -exec rm -v {} \;'
 
 # diskutil
-alias macdisk-info='diskutil info disk0'
-alias macdisk-list='diskutil list'
-# alias macdisk-smart-status='diskutil info disk0|grep SMART'
+alias mac-diskutil-info='diskutil info disk0'
+alias mac-diskutil-list='diskutil list'
+alias mac-diskutil-smart-status='diskutil info disk0|grep SMART'
 
 
 # TRIM
 # > sudo trimforce enable
-alias macdisk-trim-status='system_profiler SPSerialATADataType | grep "TRIM" '
+alias mac-disk-trim-status='system_profiler SPSerialATADataType | grep "TRIM" '
 
 
 # SMART
 # https://apple.stackexchange.com/questions/135565/how-do-i-get-detailed-smart-disk-information-on-os-x-mavericks-or-later
 # > brew install smartmontools
-alias macdisk-smart-info='smartctl -a disk0'
-alias macdisk-smart-status='system_profiler SPSerialATADataType | grep "S.M.A.R.T." '
+alias mac-disk-smart-info='smartctl -a disk0'
+alias mac-disk-smart-status='system_profiler SPSerialATADataType | grep "S.M.A.R.T." '
 
 # activate SMART on a drive:
 # smartctl -s on -a disk0s2.
@@ -57,7 +57,7 @@ alias macdisk-smart-status='system_profiler SPSerialATADataType | grep "S.M.A.R.
 # https://www.wikihow.com/Open-Applications-Using-Terminal-on-Mac
 # open -a AppName
 
-alias mac-apps='echo "firefox office excel calc pfinder songbird cleanmymac"'
+alias mac-apps='echo "firefox office excel calc pfinder songbird cleanmymac sage"'
 alias songbird='open -a /Applications/Songbird_193.app/Contents/MacOS/songbird'
 alias firefox='open -a "Firefox"'
 alias excel='open -a "Microsoft Excel"'
@@ -65,18 +65,8 @@ alias office='open -a "LibreOffice"'
 alias calc='open -a /Applications/Numi.app/Contents/MacOS/Numi'
 alias pfinder='open /Applications/Path\ Finder7.app'
 alias cleanmymac='open -a /Applications/CleanMyMac\ 3.app/Contents/MacOS/CleanMyMac\ 3'
-
 alias sage='cd /Applications/SageMath; ./sage; home'
-
-
-
-# --------------------------------------------------
-# sage:  path
-# --------------------------------------------------
-# create aliases directory variable and add to PATH
-#export SAGE_PATH=/Applications/SageMath
-#export PATH="$SAGE_PATH:$PATH"   
-
+ 
 
 
 

@@ -2,11 +2,15 @@
 FROM ubuntu:20.04
 LABEL Description="Ubuntu server with end-user cli tools"
 #   docker build  -t ubuntu_rmr -f df_ubuntu .
-#   docker run -it -v ~/docker/image_home:/home -p 8081:8081  ubuntu_rmr
+#   docker run -it -v ~/docker/image_home:/home -p8081:8081 -p3333:3333  ubuntu_rmr
+
+#  AFTER STARTUP: SOURCE ALIASES and INSTALL APPS AS NEEDED:
+# > source aliases_bash.sh 
+# > sh /scripts/install-b4p.sh 
 
 
 
-RUN echo "------- USER/GROUP ID -------"
+RUN echo "------- NOTEBOOK USER ID / GROUP ID -------"
 ARG NB_USER="rafael"
 ARG NB_UID="1000"
 ARG NB_GID="100"
@@ -14,10 +18,10 @@ ARG NB_GID="100"
 ENV HOME=/home
 
 
+
 RUN echo "------- SHELL ----------"
 ENV SHELL=/bin/bash
 SHELL ["/bin/bash", "-c"]
-
 
 
 
@@ -29,7 +33,10 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     apt-utils \
     ca-certificates \
     wget \
+    curl \
     git \
+    tar \
+    unzip \
     sudo \
     dpkg \
     pkg-config \
@@ -40,7 +47,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 
 
 RUN echo "------  LOCALE -------"
-# must install locales above before running
+# must install locales (see above) before running
 RUN figlet "locale"
 RUN locale-gen "en_US.UTF-8"
 ENV LANG=en_US.UTF-8 \
@@ -68,9 +75,6 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 #       autoconf \                                     
 #       gcc \                                          
 #       dkms \                                         
-#       curl 
-#       tar 
-#       unzip \
         && \
     apt-get clean
 
@@ -82,7 +86,7 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
          bash-completion \
          aptitude \
          vim \
-	    ranger \
+	     ranger \
          tldr \
          fzf \
          tree \
@@ -137,12 +141,52 @@ RUN    /home/downloads/install-ydb.sh
 
 
 
+RUN echo "------ B4P  ------"
+RUN figlet "B4P"
+# Copy and run B4P installation scrip: 
+COPY  /scripts/install-b4p.sh  /home/downloads/install-b4p.sh
+RUN   chmod a+rx /home/downloads/install-b4p.sh
+RUN   /home/downloads/install-b4p.sh
+
+
+
+
+RUN echo "------- Java 8 -------"
+RUN figlet "JAVA"
+RUN apt-get update && apt-get install --yes --no-install-recommends \
+    openjdk-8-jdk && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Java OpenJDK 8  https://openjdk.java.net/faq/
+# Use Java 8 (openjdk 1.8); DO NOT use Java 9 or higher - get errors with OpenRefine
+# To determine path, RUN update-java-alternatives --config java => then put into .bashrc
+# RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin/java" >> /home/.bash_profile
+
+
+
+
+RUN echo "------ OpenRefine  ------"
+RUN figlet "OpenRefine"
+# Copy and run OpenRefine installation scrip: 
+COPY  /scripts/install-openrefine.sh  /home/downloads/install-openrefine.sh
+RUN   chmod a+rx /home/downloads/install-openrefine.sh
+RUN   /home/downloads/install-openrefine.sh
+
+
+
+
 RUN echo "------ STARTUP ------"
 # Startup directory
 WORKDIR /home
 
 # Publish TTYD port
 EXPOSE 8081
+
+# Publish OpenRefine port(s)
+EXPOSE 3333
+
+
 
 
 # TTYD Usage: https://github.com/tsl0922/ttyd/wiki/Example-Usage
@@ -151,8 +195,6 @@ EXPOSE 8081
 # Auto-start when run container
 #    ENTRYPOINT ["/sbin/tini", "--"]
 #    CMD ["ttyd", "bash"]
-
-
 
 
 

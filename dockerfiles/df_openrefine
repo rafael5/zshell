@@ -1,0 +1,25 @@
+
+# Dockerfile for openrefine
+# https://github.com/vimagick/dockerfiles/blob/master/openrefine/Dockerfile
+
+
+# RUN echo "------ OPENREFINE ------"
+# RUN figlet "OpenRefine"
+# WORKDIR /home/downloads
+# ADD https://github.com/OpenRefine/OpenRefine/releases/download/3.4.1/openrefine-linux-3.4.1.tar.gz  /home/downloads
+# RUN tar xvf openrefine-linux-3.4.1.tar.gz
+
+# Start
+# cd openrefine-3.4.1/
+# ./refine
+
+# VOLUME /data
+# WORKDIR /data
+
+# ENTRYPOINT ["/app/refine"]
+# CMD ["-i", "0.0.0.0", "-d", "/data"]
+
+
+
+
+

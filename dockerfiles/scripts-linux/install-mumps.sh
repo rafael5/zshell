@@ -13,11 +13,17 @@
 #    glib-2.0
 
 figlet "mumps"
-cd /home/downloads
+
+# docker
+#cd /home/downloads
+# mint
+cd ~/Downloads
+
 wget http://www.cs.uni.edu/~okane/source/MUMPS-MDH/mumps-20.06.src.tar.gz
 chmod +x mumps-20.06.src.tar.gz
-tar -xvzf mumps-20.06.src.tar.gz
-cd mumpsc/
+mkdir mumps
+tar -xvzf mumps-20.06.src.tar.gz -C mumps --strip-components 1
+cd mumps/
 ./CompileNativeSharedMumps.script
 
 

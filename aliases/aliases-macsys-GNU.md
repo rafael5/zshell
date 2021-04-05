@@ -4,5 +4,5 @@
 # https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands
 # brew install coreutils  gnu-sed
 
-alias macsys-gnu-utils='open https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands'
+alias mac-gnu-utils='open https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands'
 

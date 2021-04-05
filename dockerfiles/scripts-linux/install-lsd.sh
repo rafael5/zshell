@@ -1,6 +1,12 @@
 
+# docker
+#cd /home/downloads
 
-cd /home/downloads
+
+# mint
+cd ~/Downloads
+
+
 export GIT_SSL_NO_VERIFY=true
 git clone https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb /home/downloads
 chmod +x lsd-musl_0.19.0_amd64.deb
