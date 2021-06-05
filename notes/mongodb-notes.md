@@ -47,9 +47,6 @@ Starting in MongoDB 4.4.1, installing MongoDB via brew also installs the MongoDB
 # MongoDB GUIs
 https://www.guru99.com/top-20-mongodb-tools.html
 https://www.npmjs.com/package/mongo-monkey
-
-
-# MongoDB Compass
 https://www.mongodb.com/try/download/compass
 
 
