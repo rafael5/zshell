@@ -1,11 +1,6 @@
 
 figlet "OpenRefine"
-
-# docker
-#cd /home/downloads
-# mint
-cd ~/Downloads
-
+cd /home/downloads
 export GIT_SSL_NO_VERIFY=true
 wget https://github.com/OpenRefine/OpenRefine/releases/download/3.4.1/openrefine-linux-3.4.1.tar.gz
 mkdir /home/openrefine

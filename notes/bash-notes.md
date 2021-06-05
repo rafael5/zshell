@@ -1,6 +1,13 @@
-https://en.wikipedia.org/wiki/FIGlet
 
-https://github.com/Szymongib/bookmark
+# FUNS STUFF ON COMMAND LINE
+# http://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/
+# http://lifehacker.com/302197/useful-command-line-tricks-for-mac-users
+# http://lifehacker.com/399468/top-10-command-line-tools
+# http://lifehacker.com/eight-terminal-utilities-every-os-x-command-line-user-s-1593793109
+# http://www.maketecheasier.com/10-funny-and-useless-linux-command/
+# http://unix.stackexchange.com/questions/48059/how-to-clean-up-unnecessary-files
+# https://en.wikipedia.org/wiki/FIGlet
+# https://github.com/Szymongib/bookmark
 
 
 
@@ -37,3 +44,21 @@ command **<tab>
 vim **<tab>
 # add fuzzy search to vim.  add to .vimrc:
 set rtp+=/usr/local/opt/fzf
+
+
+
+# MULTI-LINE TEXT MESSAGE --------------
+msg1="
+-----------------------------\n
+this is line one\n
+this is line two\n
+this is line three\n
+-----------------------------
+"
+
+echo -e $msg1
+
+
+
+
+

@@ -13,12 +13,7 @@
 #    glib-2.0
 
 figlet "mumps"
-
-# docker
-#cd /home/downloads
-# mint
-cd ~/Downloads
-
+cd /home/downloads
 wget http://www.cs.uni.edu/~okane/source/MUMPS-MDH/mumps-20.06.src.tar.gz
 chmod +x mumps-20.06.src.tar.gz
 mkdir mumps

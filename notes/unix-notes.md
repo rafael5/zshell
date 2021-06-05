@@ -1,4 +1,15 @@
 
+# UNIX REFERENCE
+# https://www.tutorialspoint.com/unix/unix-getting-started.htm
+# https://en.wikipedia.org/wiki/Unix
+# https://en.wikipedia.org/wiki/List_of_Unix_commands
+# https://en.wikipedia.org/wiki/List_of_Unix_daemons
+# https://en.wikipedia.org/wiki/Single_UNIX_Specification
+# https://en.wikipedia.org/wiki/Comparison_of_operating_systems
+# https://en.wikipedia.org/wiki/Comparison_of_Linux_distributions
+
+
+
 # POSIX: PORTABLE OPERATING SYSTEM INTERFACE
 # ---------------------------------------------------------
 # https://en.wikipedia.org/wiki/POSIX

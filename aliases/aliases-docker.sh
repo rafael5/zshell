@@ -12,7 +12,7 @@ alias docker-prune='docker system prune'
 alias docker-apps='echo "DOCKER APPS:    dst- conda- spark- nv- ydb- iris-  pg-  theia-" '
 
 alias docker-env="env | grep DOCKER_"
-alias docker-machine-list="docker-machine ls"
+# alias docker-machine-list="docker-machine ls"
 
 function docker-machine-env() {
   eval "$(docker-machine env "${1:-default}")"
@@ -33,6 +33,7 @@ alias sage-docker-jupyter-open='open http://127.0.0.1:8888/?token=18b31be6b3647e
 
 
 
+
 # -----------------------------------------------------------------------------
 # datascience toolbox (dst)
 # -----------------------------------------------------------------------------
@@ -43,6 +44,7 @@ alias dst-info='echo "dst- docs | pull | run   [DataScienceToolbox]"'
 alias dst-docs='open https://www.datascienceatthecommandline.com/2e/index.html'
 alias dst-pull='docker pull datasciencetoolbox/dsatcl2e'
 alias dst-run='open ~/docker/dst; docker run --rm -it -v ~/docker/dst:/home/dst datasciencetoolbox/dsatcl2e'
+
 
 
 # -----------------------------------------------------------------------------

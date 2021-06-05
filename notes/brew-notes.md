@@ -33,6 +33,7 @@ btm        	    bottom: system monitor:  	https://github.com/ClementTsang/bottom
 # NETWORK:      speedtest-cli
 speedtest-cli
 
+
 # FILES:        tree nnn ranger lsd mmv rename bat
 tree
 nnn             file manager:  https://github.com/jarun/nnn
@@ -48,8 +49,9 @@ navi            cheatsheet for CLI: https://github.com/denisidoro/navi
 tldr
 cheat           
 
-# SEARCH:       ack navi
+# SEARCH:       ack
 ack             grep replacement
+
 
 # SYSTEM:       openssl wget xquartz lnav xquartz
 openssl
@@ -74,15 +76,15 @@ gdbm            database access functions
 coreutils       installs a LOT of stuff; may interfere with xcode
 gnu-sed         edit text in scriptable fashion
 
-# UTILS         task
+# UTILS         task exiftool csvkit
 task            taskwarrior: https://taskwarrior.org/docs/
 exiftool        https://exiftool.org/
 csvkit          https://csvkit.readthedocs.io/en/1.0.1/
 
 
 # FUN:          archie cal figlet cowsay cmatrix spark fortune
-archie          apple info
-cal
+archey          apple info
+cal             calendar
 figlet
 cowsay
 cmatrix

@@ -26,14 +26,14 @@ alias mac-diskutil-smart-status='diskutil info disk0|grep SMART'
 
 # TRIM
 # > sudo trimforce enable
-alias mac-disk-trim-status='system_profiler SPSerialATADataType | grep "TRIM" '
+alias mac-ssd-trim-status='system_profiler SPSerialATADataType | grep "TRIM" '
 
 
 # SMART
 # https://apple.stackexchange.com/questions/135565/how-do-i-get-detailed-smart-disk-information-on-os-x-mavericks-or-later
 # > brew install smartmontools
-alias mac-disk-smart-info='smartctl -a disk0'
-alias mac-disk-smart-status='system_profiler SPSerialATADataType | grep "S.M.A.R.T." '
+alias mac-ssd-smart-info='smartctl -a disk0'
+alias mac-ssd-smart-status='system_profiler SPSerialATADataType | grep "S.M.A.R.T." '
 
 # activate SMART on a drive:
 # smartctl -s on -a disk0s2.

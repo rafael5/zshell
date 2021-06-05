@@ -108,14 +108,13 @@ RUN    chmod a+rx /usr/local/bin/fix-permissions
 
 
 
-
-RUN echo "------ LSD ------"
-# requires: (binary install)
-RUN figlet "LSD"
-WORKDIR /home/downloads
-ADD https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb /home/downloads
-RUN chmod +x lsd-musl_0.19.0_amd64.deb \
-   && dpkg -i lsd-musl_0.19.0_amd64.deb
+# LSD: requires binary install  (no build)
+# RUN echo "------ LSD ------"
+# RUN figlet "LSD"
+# WORKDIR /home/downloads
+# ADD https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb /home/downloads
+# RUN chmod +x lsd-musl_0.19.0_amd64.deb \
+#   && dpkg -i lsd-musl_0.19.0_amd64.deb
 
 
 
@@ -131,12 +130,12 @@ RUN    /home/downloads/install-ttyd.sh
 
 
 RUN echo "------ YottaDB ------"
-# Requires: build-essential libtinfo5 pkg-config
 RUN figlet "YottaDB"
+# Requires: build-essential libtinfo5 pkg-config
 # Copy and run ydb installation script: 
-COPY   /scripts/install-ydb.sh  /home/downloads/install-ydb.sh
-RUN    chmod a+rx /home/downloads/install-ydb.sh
-RUN    /home/downloads/install-ydb.sh
+# COPY   /scripts/install-ydb.sh  /home/downloads/install-ydb.sh
+# RUN    chmod a+rx /home/downloads/install-ydb.sh
+# RUN    /home/downloads/install-ydb.sh
 
 
 
@@ -144,9 +143,9 @@ RUN    /home/downloads/install-ydb.sh
 RUN echo "------ B4P  ------"
 RUN figlet "B4P"
 # Copy and run B4P installation scrip: 
-COPY  /scripts/install-b4p.sh  /home/downloads/install-b4p.sh
-RUN   chmod a+rx /home/downloads/install-b4p.sh
-RUN   /home/downloads/install-b4p.sh
+# COPY  /scripts/install-b4p.sh  /home/downloads/install-b4p.sh
+# RUN   chmod a+rx /home/downloads/install-b4p.sh
+# RUN   /home/downloads/install-b4p.sh
 
 
 

@@ -1,17 +1,14 @@
+
+
 figlet "B4P"
-
-# docker
-# cd /home/downloads
-
-# mint
-cd ~/Downloads
-
+cd /home/downloads
 export GIT_SSL_NO_VERIFY=true
 git clone https://github.com/georgzurbonsen/Beyond4P_Distribution
-cd Beyond4P_Distribution/LATEST/
-tar -xvzf B4P_64bit_installer_LINUX.tar.gz 
+cd Beyond4P_Distribution/v8.02/
+tar -xvzf B4P_8_02_Installation_64_bit_LINUX.tar.gz
 cd b4p_installation/
 sudo ./setup --choice=machine --locale=en_US
+
 
 
 
