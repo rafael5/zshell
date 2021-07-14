@@ -8,7 +8,7 @@ chmod +x ydbinstall.sh
 sudo ./ydbinstall.sh --utf8 default --verbose --overwrite-existing
 YDB_PATH=/usr/local/lib/yottadb/r130
 
-figlet "ydb configure"
+figlet "ydb set environment variables"
 cd /usr/local/lib/yottadb/r130
 source $(pkg-config --variable=prefix yottadb)/ydb_env_set
 

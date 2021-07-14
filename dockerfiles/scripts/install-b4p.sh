@@ -4,8 +4,8 @@ figlet "B4P"
 cd /home/downloads
 export GIT_SSL_NO_VERIFY=true
 git clone https://github.com/georgzurbonsen/Beyond4P_Distribution
-cd Beyond4P_Distribution/v8.02/
-tar -xvzf B4P_8_02_Installation_64_bit_LINUX.tar.gz
+cd Beyond4P_Distribution/v8.03a/
+tar -xvzf B4P_8_03a_Installation_64_bit_LINUX.tar.gz
 cd b4p_installation/
 sudo ./setup --choice=machine --locale=en_US
 

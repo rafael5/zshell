@@ -1,5 +1,21 @@
 
 # -----------------------------------------------------------------------------
+# Intel/AMD emulation on ARM  (for Mac M1)
+# -----------------------------------------------------------------------------
+# https://docs.docker.com/docker-for-mac/apple-silicon/
+# --platform linux/amd64
+
+
+
+# -----------------------------------------------------------------------------
+# ubuntu RMR
+# -----------------------------------------------------------------------------
+alias ubuntu-pull='cd ~/docker/dockerfiles; docker build  -t ubuntu_rmr -f df_ubuntu .  '
+alias ubuntu-run='cd ~/docker/dockerfiles; docker run -it -v ~/docker/image_home:/home -p8081:8081 -p3333:3333  ubuntu_rmr'
+
+
+
+# -----------------------------------------------------------------------------
 # docker
 # -----------------------------------------------------------------------------
 # https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
@@ -9,7 +25,7 @@ alias docker-list='docker ps -a'
 alias docker-stop-all='docker stop $(docker ps -a -q)'
 alias docker-rm-all='docker rmi $(docker images -a -q -f)'
 alias docker-prune='docker system prune'
-alias docker-apps='echo "DOCKER APPS:    dst- conda- spark- nv- ydb- iris-  pg-  theia-" '
+alias docker-apps='echo "DOCKER APPS:   ubuntu- sage- dst- conda- spark- nv- ydb- iris-  pg-  theia-" '
 
 alias docker-env="env | grep DOCKER_"
 # alias docker-machine-list="docker-machine ls"
@@ -20,6 +36,44 @@ function docker-machine-env() {
 function docker-clean() {
   docker rmi -f $(docker images -q -a -f dangling=true)
 }
+
+
+# -----------------------------------------------------------------------------
+# nodevista
+# -----------------------------------------------------------------------------
+# https://github.com/vistadataproject/nodeVISTA/tree/master/setupDocker#docker-for-nodevista
+alias nv-info='echo "nv- pull | run | restart | schema | query" '
+alias nv-pull='docker pull vistadataproject/nodevista999:latest'
+alias nv-run='docker run -p 9330:9430 -p 32:22 -p 9100:9000 -p 9331:8001 -d -P --name nodevista999 vistadataproject/nodevista999:latest'
+alias nv-restart='docker restart nodevista999'
+alias nv-schema='open http://localhost:9100/schema'
+alias nv-query='open http://localhost:9100/query'
+
+
+# -----------------------------------------------------------------------------
+# yottadb  (run as emulated on amd64 using rosetta rather than native arm64)
+# -----------------------------------------------------------------------------
+# https://docs.docker.com/docker-for-mac/apple-silicon/
+alias ydb-info='echo "ydb-  pull | run " '
+alias ydb-pull='docker pull yottadb/yottadb-debian:latest-master'
+alias ydb-run='docker run -it --platform linux/amd64  -v ~/docker/ydb-data:/data --network=host yottadb/yottadb-debian:latest-master'
+# open ~/docker/ydb-data; 
+
+
+alias ydb-pull-vehu='docker pull yottadb/octo-vehu'
+alias ydb-run-vehu='docker run -p 8081:8081 -p 2224:22 -p 61012:61012 -d -P --sysctl kernel.msgmax=1048700 --sysctl kernel.msgmnb=65536000 --name=octo-vehu yottadb/octo-vehu'
+
+
+
+
+# -----------------------------------------------------------------------------
+# iris
+# -----------------------------------------------------------------------------
+alias iris-info='echo "iris- pull | run  | open" '
+alias iris-pull='docker pull store/intersystems/iris-ml-community:2020.4.0AA.368.0'
+alias iris-run='docker run --name iris-ml -d --publish 9091:51773 --publish 9092:52773 store/intersystems/iris-ml-community:2020.4.0AA.368.0'
+alias iris-open='echo "IRIS Login:  _SYSTEM / SYS "; open http://localhost:9092/csp/sys/UtilHome.csp'
+
 
 
 
@@ -48,7 +102,7 @@ alias dst-run='open ~/docker/dst; docker run --rm -it -v ~/docker/dst:/home/dst 
 
 
 # -----------------------------------------------------------------------------
-# spark-notebook
+# spark notebook
 # -----------------------------------------------------------------------------
 # https://spark.apache.org/docs/latest/index.html
 # https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
@@ -61,35 +115,6 @@ alias spark-stop='docker stop notebook'
 alias spark-rm='docker rm notebook'
 
 
-
-# -----------------------------------------------------------------------------
-# nodevista
-# -----------------------------------------------------------------------------
-# https://github.com/vistadataproject/nodeVISTA/tree/master/setupDocker#docker-for-nodevista
-alias nv-info='echo "nv- pull | run | restart | schema | query" '
-alias nv-pull='docker pull vistadataproject/nodevista999:latest'
-alias nv-run='docker run -p 9330:9430 -p 32:22 -p 9100:9000 -p 9331:8001 -d -P --name nodevista999 vistadataproject/nodevista999:latest'
-alias nv-restart='docker restart nodevista999'
-alias nv-schema='open http://localhost:9100/schema'
-alias nv-query='open http://localhost:9100/query'
-
-
-# -----------------------------------------------------------------------------
-# yottadb
-# -----------------------------------------------------------------------------
-alias ydb-info='echo "ydb-  pull | run " '
-alias ydb-pull='docker pull yottadb/yottadb-debian:latest-master'
-alias ydb-run='open ~/docker/ydb-data; docker run -it -v ~/docker/ydb-data:/data --network=host yottadb/yottadb-debian:latest-master'
-
-alias ydb-pull-vehu='docker pull yottadb/octo-vehu'
-alias ydb-run-vehu='docker run -p 8081:8081 -p 2224:22 -p 61012:61012 -d -P --sysctl kernel.msgmax=1048700 --sysctl kernel.msgmnb=65536000 --name=octo-vehu yottadb/octo-vehu'
-
-
-# iris
-alias iris-info='echo "iris- pull | run  | open" '
-alias iris-pull='docker pull store/intersystems/iris-ml-community:2020.4.0AA.368.0'
-alias iris-run='docker run --name iris-ml -d --publish 9091:51773 --publish 9092:52773 store/intersystems/iris-ml-community:2020.4.0AA.368.0'
-alias iris-open='echo "IRIS Login:  _SYSTEM / SYS "; open http://localhost:9092/csp/sys/UtilHome.csp'
 
 
 
